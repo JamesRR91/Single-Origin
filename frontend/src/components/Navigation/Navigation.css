@@ -8,6 +8,8 @@
     align-items: center;
     font-size: 20px;
     position: absolute;
+    border-radius: 5px;
+    padding: 10px 20px 30px;
 }
 
 .login-ul {

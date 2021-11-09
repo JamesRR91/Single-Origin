@@ -1,6 +1,6 @@
-const ADD_RECIPES ='recipes/addRecipes';
-const ADD_ONE_RECIPE ='recipes/addOneRecipe';
-const REMOVE_ONE_RECIPE ='recipes/removeOneRecipe';
+const ADD_RECIPES ='recipe/addRecipes';
+const ADD_ONE_RECIPE ='recipe/addOneRecipe';
+const REMOVE_ONE_RECIPE ='recipe/removeOneRecipe';
 
 const addRecipes = payload => {
     return {
@@ -24,7 +24,7 @@ const removeOneRecipe = payload => {
 };
 
 export const getAllRecipes = () => async dispatch => {
-    const response = await fetch('/api/recipes');
+    const response = await fetch('/api/recipe');
     if(response.ok) {
         const data = await response.json();
         dispatch(addRecipes(data.recipes));
@@ -32,7 +32,7 @@ export const getAllRecipes = () => async dispatch => {
 }
 
 export const addRecipe = recipe => async dispatch => {
-    const response = await fetch('/api/recipes', {
+    const response = await fetch('/api/recipe', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(recipe),
@@ -44,7 +44,7 @@ export const addRecipe = recipe => async dispatch => {
 };
 
 export const deleteRecipe = id => async dispatch => {
-    const response = await fetch(`/api/recipes/${id}`,{
+    const response = await fetch(`/api/recipe/${id}`,{
         method: 'DELETE',
     });
 

@@ -56,4 +56,4 @@ const createRecipe = () => {
         </div>
     )
 }
-export default CreateRecipe;
+export default createRecipe;
