@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
   });
-  
+
   const { Validator } = require('sequelize');
 
   User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function
@@ -87,7 +87,16 @@ module.exports = (sequelize, DataTypes) => {
     return await User.scope('currentUser').findByPk(user.id);
   };
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Recipe, {
+      foreignKey: 'userid',
+      onDelete: 'cascade',
+      hooks:true
+    })
+    User.hasMany(models.Comment, {
+      foreignKey: 'userid',
+      onDelete: 'cascade',
+      hooks:true
+    })
   };
   return User;
 };
