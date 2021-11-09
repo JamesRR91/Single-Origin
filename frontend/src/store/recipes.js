@@ -16,7 +16,7 @@ const addOneRecipe = payload => {
     };
 };
 
-const removeOneRecipe = payload => {
+const removeOneRecipe = id => {
     return {
         type: REMOVE_ONE_RECIPE,
         payload: id,
