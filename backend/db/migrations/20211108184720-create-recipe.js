@@ -18,6 +18,11 @@ module.exports = {
         type: Sequelize.INTEGER,
         references:{model:'Grinders'}
       },
+      title: {
+        allowNull: false,
+        type: Sequelize.STRING,
+        unique: true
+      },
       brewtype: {
         allowNull: false,
         type: Sequelize.STRING

@@ -1,30 +1,29 @@
 
 .splashpage-container {
+    font-family: sans-serif;
     background-image: url(https://res.cloudinary.com/grohealth/image/upload/f_auto,fl_lossy,q_auto/v1581688713/DCUK/Content/iStock-938993594-1000x600.jpg);
-    background-repeat: no-repeat;
-    width:auto;
+    background-size: auto;
     background-size:cover;
     display:flex;
     height:100vh;
+    border: 10px solid gray;
 }
 
-.splashpage-writing-container {
-    display: flex;
-    align-content: self;
-    padding-top: 20px;
-    margin-top: 50px;
-    justify-content:space-around;
-}
 .splashpage-header {
     color:black;
+    display: flex;
     font-size:2rem;
-    padding: 2rem;
+    align-items: center;
+    justify-content:center;
+    align-content: center;
+    border: 10px solid gray;
 }
 .splashpage-login {
     display: flex;
+    justify-content: center;
     color:black;
     font-size:20px;
     padding: 5px;
     border-radius:10px;
-    margin-top: 10px;
+    margin: 10px 20px 30px;
 }

@@ -57,7 +57,7 @@ const recipeReducer = (state={}, action) => {
     let newState = {};
     switch (action.type){
         case ADD_RECIPES:
-        action.payload.forEach(recipe =>(newState[recipe.id]= recipe.id));
+        action.payload.forEach(recipe =>(newState[recipe.id]= recipe));
         return newState;
         case ADD_ONE_RECIPE:
             newState={...state,[action.payload.id]:action.payload};

@@ -16,6 +16,7 @@ const RecipeList = () => {
                 {recipes.map(({id, description}) => (
                     <RecipeDetail
                         key={id}
+
                         description={description}
                     />
                 ))}

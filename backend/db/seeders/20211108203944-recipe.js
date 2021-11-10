@@ -6,6 +6,7 @@ module.exports = {
       {
         userid: 1,
         grinderid: 1,
+        title: 'Large Batch Chemex',
         brewtype: 'Chemex',
         roasttype:'light roast',
         grindlevel:'medium-coarse',

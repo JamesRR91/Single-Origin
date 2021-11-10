@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Recipe=sequelize.define('Recipe', {
     userid: DataTypes.INTEGER,
     grinderid: DataTypes.INTEGER,
+    title: DataTypes.STRING,
     brewtype: DataTypes.STRING,
     roasttype: DataTypes.STRING,
     grindlevel: DataTypes.STRING,

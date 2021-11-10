@@ -1,0 +1,9 @@
+.description-text {
+    font: size 10px;
+}
+
+.recipe-detail {
+    direction:flex-direction;
+    display: flex;
+    justify-content:center;
+}

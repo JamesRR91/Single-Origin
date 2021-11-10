@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { deleteRecipe } from '../../store/recipes';
+import './RecipeDetail.css';
 
 const RecipeDetail = ({ id, userid, grinderid, brewtype,roasttype,grindlevel,description }) => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const RecipeDetail = ({ id, userid, grinderid, brewtype,roasttype,grindlevel,des
       <span>{brewtype}</span>
       <span>{roasttype}</span>
       <span>{grindlevel}</span>
-      <span>{description}</span>
+      <span className="description-text">{description}</span>
       <div className='button-row'>
         <button onClick={() => handleDelete(id)} className='delete-button'>
           Delete
