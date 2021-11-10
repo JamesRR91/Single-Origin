@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       Recipe.hasOne(models.User, {
         foreignKey: 'userid'
       })
-      Recipe.hasMany(models.Comments, {
+      Recipe.hasMany(models.Comment, {
         foreignKey: 'recipeid',
         onDelete: 'cascade',
         hooks:true

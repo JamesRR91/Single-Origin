@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllRecipes } from '../../store/recipes';
+import RecipeDetail from '../RecipeDetail';
 
 const RecipeList = () => {
     const dispatch = useDispatch();
@@ -12,14 +13,11 @@ const RecipeList = () => {
     }, [dispatch]);
     return (
         <div className="recipe-list-container">
-                {recipes.map(({id, userid, grinderid, brewtype, roasttype,grindlevel,description}) => (
-                    <p>key={id},
-                        grinderid={grinderid},
-                        brewtype={brewtype},
-                        roasttype={roasttype},
-                        grindlevel={grindlevel},
+                {recipes.map(({id, description}) => (
+                    <RecipeDetail
+                        key={id}
                         description={description}
-                    </p>
+                    />
                 ))}
         </div>
     )

@@ -39,7 +39,7 @@ const createRecipe = () => {
             value={brewtype}
             placeholder='Keurig'
             />
-            <input
+            <input 
             onChange={(e) =>setRoastType(e.target.value)}
             value={roasttype}
             placeholder='Whatever I Can Get'
