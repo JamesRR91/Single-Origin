@@ -60,7 +60,27 @@
 }
 
 .login-home-button {
-    background: transparent;
-    font-size: 25px;
-    color: black;
+    background: hsl(200, 50%, 50%);
+    color: white;
+    border: none;
+    padding: .5em .75em;
+    border-radius: .25em;
+    cursor: pointer;
+}
+
+.login-button {
+    background: hsl(200, 50%, 50%);
+    color: white;
+    border: none;
+    padding: .5em .75em;
+    border-radius: .25em;
+    cursor: pointer;
+}
+.home-button {
+    background: hsl(200, 50%, 50%);
+    color: white;
+    border: none;
+    padding: .5em .75em;
+    border-radius: .25em;
+    cursor: pointer;
 }

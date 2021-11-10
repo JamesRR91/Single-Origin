@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { addRecipes } from '../../store/recipes';
+import { addRecipe } from '../../store/recipes';
 
-const createRecipe = () => {
+const CreateRecipe = () => {
     const [grinderid, setGrinderId] = useState('');
     const [brewtype, setBrewType] = useState('');
     const [roasttype, setRoastType] = useState('');
@@ -20,7 +20,7 @@ const createRecipe = () => {
             roasttype,
             description
         };
-        dispatch(addRecipes(payload));
+        dispatch(addRecipe(payload));
 
         history.push('/');
     };
@@ -39,7 +39,7 @@ const createRecipe = () => {
             value={brewtype}
             placeholder='Keurig'
             />
-            <input 
+            <input
             onChange={(e) =>setRoastType(e.target.value)}
             value={roasttype}
             placeholder='Whatever I Can Get'
@@ -56,4 +56,4 @@ const createRecipe = () => {
         </div>
     )
 }
-export default createRecipe;
+export default CreateRecipe;

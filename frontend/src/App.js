@@ -7,6 +7,7 @@ import SplashPage from "./components/SplashPage";
 import RecipeList from "./components/RecipeList";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import CreateRecipe from "./components/CreateRecipe"
 
 function App() {
   const dispatch = useDispatch();
@@ -26,8 +27,11 @@ function App() {
           <Route path="/signup">
             <SignupForm />
           </Route>
-          <Route path="/recipe">
+          <Route exact path="/recipe">
             <RecipeList />
+          </Route>
+          <Route path="/recipe/add">
+            <CreateRecipe />
           </Route>
         </Switch>
       )}
