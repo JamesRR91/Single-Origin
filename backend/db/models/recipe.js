@@ -7,14 +7,14 @@ module.exports = (sequelize, DataTypes) => {
     brewtype: DataTypes.STRING,
     roasttype: DataTypes.STRING,
     grindlevel: DataTypes.STRING,
+    coffeedose: DataTypes.STRING,
+    waterdose: DataTypes.STRING,
+    brewtime: DataTypes.STRING,
     description:DataTypes.TEXT
   },{})
     Recipe.associate = function(models) {
       Recipe.hasOne(models.Grinder, {
         foreignKey: 'grinderid'
-      })
-      Recipe.hasOne(models.User, {
-        foreignKey: 'userid'
       })
       Recipe.hasMany(models.Comment, {
         foreignKey: 'recipeid',

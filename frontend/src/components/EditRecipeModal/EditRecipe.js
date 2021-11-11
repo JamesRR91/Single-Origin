@@ -2,12 +2,15 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { addRecipe } from '../../store/recipes';
+import { modifyRecipe } from '../../store/recipes';
+import { useParams } from 'react-router-dom';
 // import  Dropdown  from "./Dropdown";
 
-const CreateRecipe = () => {
+const EditRecipe = () => {
+    const { recipeId } = useParams();
+    const recipe = useSelector(state =>state.recipe[recipeId])
     const sessionUser = useSelector((state) => state.session.user.id);
-    const [title, setTitle]= useState('');
+    const [title, setTitle]= useState(recipe.title);
     const [brewtype, setBrewType] = useState('');
     const [roasttype, setRoastType] = useState('');
     const [grindlevel, setGrindLevel] = useState('');
@@ -17,6 +20,7 @@ const CreateRecipe = () => {
     const [description, setDescription] = useState('');
     const history =useHistory();
     const dispatch=useDispatch();
+    console.log(useParams());
 
     const handleSubmit= async (e) => {
         e.preventDefault();
@@ -31,7 +35,7 @@ const CreateRecipe = () => {
             brewtime,
             description
         };
-        let createdRecipe=await dispatch(addRecipe(payload));
+        let createdRecipe=await dispatch(modifyRecipe(payload));
         if(createdRecipe){
             history.push('/recipe');
         }
@@ -104,10 +108,10 @@ const CreateRecipe = () => {
             placeholder='Press Start, Pour'
             />
             <button className='submit-button' type='submit'>
-          Add Product
+          Edit Product
         </button>
         </form>
         </section>
     )
 }
-export default CreateRecipe;
+export default EditRecipe;

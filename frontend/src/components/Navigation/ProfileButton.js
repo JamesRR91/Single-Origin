@@ -32,35 +32,21 @@ function ProfileButton({ user }) {
     }
 
     return (
-        <>
-            <div className = 'profile-button' onClick = { openMenu }>
-                {!showMenu && (
-                    <i className="far fa-user-circle fa-2x"></i>
-                )}
-            </div>
-            {showMenu && (
-                <div className = 'profile-container'>
-                    <ul className = 'profile-dropdown'>
-                        <li className = 'showMenu-items'>
-                            <i className="far fa-user-circle fa-lg"></i>
-                        </li>
-                        <li className = 'showMenu-items'>
-                            <NavLink className = 'profile-nav' to = '/profile'>
-                                 { user.username }
-                            </NavLink>
-                        </li>
-                        <li className = 'showMenu-items'>
-                            <i className="fas fa-envelope fa-lg"></i>
-                            <p className = 'profile-email-p'>{ user.email }</p>
-                        </li>
-                        <li className = 'showMenu-items'>
-                            <button className = 'profile-logout' onClick = { logout }>Log Out</button>
-                        </li>
-                    </ul>
-                </div>
-            )}
-        </>
-    );
+        <div>
+          <button onClick={openMenu}>
+            <i class="far fa-address-card"></i>
+          </button>
+          {showMenu && (
+            <ul className="profile-dropdown">
+              <li>{user.username}</li>
+              <li>{user.email}</li>
+              <li>
+                <button onClick={logout}>Log Out</button>
+              </li>
+            </ul>
+          )}
+        </div>
+      );
 }
 
 export default ProfileButton

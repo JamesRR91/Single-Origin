@@ -2,6 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check, validationResult } =require('express-validator');
 const { Recipe } = require('../../db/models');
+const db= require('../../db/models')
 const {handleValidationErrors} = require('../../utils/validation');
 const router = express.Router();
 
@@ -9,15 +10,15 @@ const validateRecipe= [
     check('title')
         .exists({checkFalsy:true})
         .withMessage('Please enter a title'),
-    check('brewtype')
+    check('coffeedose')
         .exists({checkFalsy:true})
-        .withMessage('Please submit your brewing method'),
-    check('roast')
+        .withMessage('Please submit the reccomended amount of coffee for your recipe'),
+    check('waterdose')
         .exists({checkFalsy:true})
-        .withMessage('Please submit a preferred roast'),
-    check('grindlevel')
+        .withMessage('Please submit the reccomended amount of water for your recipe'),
+    check('brewtime')
         .exists({checkFalsy:true})
-        .withMessage('Please submit the reccomended grind for your recipe'),
+        .withMessage('Please submit the reccomended brew time for your recipe'),
     check('description')
         .exists({checkFalsy:true})
         .withMessage('Please submit your general recipe'),
@@ -41,8 +42,36 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   );
 
   router.post('/', validateRecipe, asyncHandler(async (req, res) => {
-    const newRecipe = await Recipe.create(req.body)
-    res.json(newRecipe)
+    const newRecipe = await Recipe.create(req.body);
+    return res.json(newRecipe);
+}))
+
+router.put('/:id', validateRecipe, asyncHandler(async(req, res) => {
+    const {
+        title,
+        brewtype,
+        roasttype,
+        grindlevel,
+        coffeedose,
+        waterdose,
+        brewtime,
+        description
+    } = req.body;
+
+    const recipeId = req.params.id;
+    let recipe = await Recipe.findByPk(recipeId)
+    const updatedRecipe = await recipe.update({
+        title,
+        brewtype,
+        roasttype,
+        grindlevel,
+        coffeedose,
+        waterdose,
+        brewtime,
+        description
+    })
+
+    res.json(updatedRecipe)
 }))
 
 module.exports= router;

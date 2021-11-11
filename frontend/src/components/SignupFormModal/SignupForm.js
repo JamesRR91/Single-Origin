@@ -32,7 +32,7 @@ function SignupForm() {
 
     return (
         <form className='modal-form' onSubmit={handleSubmit}>
-            <ul className='no-bullet'>
+            <ul className='modal-list'>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label>
@@ -72,7 +72,6 @@ function SignupForm() {
                 required
             />
             <button type="submit">Sign Up</button>
-
         </form>
     );
 }

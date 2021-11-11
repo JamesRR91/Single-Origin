@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { deleteRecipe } from '../../store/recipes';
+import EditRecipeModal from '../EditRecipeModal';
 import './RecipeDetail.css';
 
-const RecipeDetail = ({ id, userid, grinderid, title, brewtype,roasttype,grindlevel,description }) => {
+const RecipeDetail = ({ id, userid, grinderid, title, brewtype,roasttype,grindlevel,coffeedose,waterdose,brewtime,description }) => {
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
@@ -12,16 +13,18 @@ const RecipeDetail = ({ id, userid, grinderid, title, brewtype,roasttype,grindle
     <div className='recipe-detail'>
       <span className='recipe-title'>{title}</span>
       <div className='card-body'>
-      <span className='recipe-brew'>How are you brewing?:{brewtype}</span>
-      <span className='recipe-roast'>What type of roast?:{roasttype}</span>
-      <span className='recipe-grind'>What type of grind?{grindlevel}</span>
-      <span className="recipe-description">{description}</span>
+      <ul>
+      <li className='recipe-brew'>How are you brewing?:{brewtype}</li>
+      <li className='recipe-roast'>What type of roast?:{roasttype}</li>
+      <li className='recipe-grind'>What type of grind?{grindlevel}</li>
+      <li className="recipe-description">{description}</li>
+      </ul>
       </div>
       <div className='button-row'>
         <button onClick={() => handleDelete(id)} className='button'>
           Delete
         </button>
-        <button className='button'>Update</button>
+        <EditRecipeModal />
         <button className='button'>Comment</button>
       </div>
     </div>

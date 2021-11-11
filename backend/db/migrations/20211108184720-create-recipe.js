@@ -34,6 +34,19 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      coffeedose: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      waterdose: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      brewtime: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+
       description: {
         allowNull: false,
         type: Sequelize.TEXT(500)
