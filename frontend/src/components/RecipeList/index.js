@@ -16,7 +16,7 @@ const RecipeList = () => {
     return (
         <div className="recipe-list-container">
                 {recipes.map(({id, title, brewtype, roasttype, grindlevel, description}) => (
-                    <RecipeDetail
+                    <RecipeDetail id={id}
                         key={id}
                         title={title}
                         brewtype={brewtype}

@@ -3,7 +3,7 @@ import { Modal } from '../../context/Modal';
 import EditRecipe from './EditRecipe';
 
 
-function EditRecipeModal() {
+function EditRecipeModal({id}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -12,7 +12,7 @@ function EditRecipeModal() {
       <button className='login-button' onClick={() => setShowModal(true)}>Edit Your Recipe</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditRecipe />
+          <EditRecipe id={id}/>
         </Modal>
       )}
     </>

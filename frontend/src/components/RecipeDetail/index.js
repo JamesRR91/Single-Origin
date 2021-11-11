@@ -22,7 +22,7 @@ const RecipeDetail = ({ id, userid, grinderid, title, brewtype,roasttype,grindle
       </ul>
       </div>
       <div className='button-row'>
-        <EditRecipeModal />
+        <EditRecipeModal id={id}/>
         <DeleteRecipeModal />
         <button className='button'>Comment</button>
       </div>

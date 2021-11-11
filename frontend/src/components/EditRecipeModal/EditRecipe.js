@@ -6,9 +6,8 @@ import { modifyRecipe } from '../../store/recipes';
 import { useParams } from 'react-router-dom';
 // import  Dropdown  from "./Dropdown";
 
-const EditRecipe = () => {
-    const { recipeId } = useParams();
-    const recipe = useSelector(state =>state.recipe[recipeId])
+const EditRecipe = ({id}) => {
+    const recipe = useSelector(state =>state.recipe[id])
     const sessionUser = useSelector((state) => state.session.user.id);
     const [title, setTitle]= useState('');
     const [brewtype, setBrewType] = useState('');
@@ -20,10 +19,18 @@ const EditRecipe = () => {
     const [description, setDescription] = useState('');
     const history =useHistory();
     const dispatch=useDispatch();
-    console.log(useParams());
     useEffect(() => {
-        dispatch(modifyRecipe());
-    }, [dispatch]);
+        if(recipe) {
+            setTitle(recipe.title)
+            setBrewType(recipe.brewtype)
+            setRoastType(recipe.roasttype)
+            setGrindLevel(recipe.grindlevel)
+            setCoffeeDose(recipe.coffeedose)
+            setWaterDose(recipe.waterdose)
+            setBrewTime(recipe.brewtime)
+            setDescription(recipe.description)
+        }
+    }, [dispatch, recipe]);
     const handleSubmit= async (e) => {
         e.preventDefault();
         const payload = {
