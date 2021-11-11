@@ -14,7 +14,6 @@ module.exports = {
         references:{model:'Users'}
       },
       grinderid: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         references:{model:'Grinders'}
       },

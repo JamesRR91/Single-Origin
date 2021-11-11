@@ -1,51 +1,66 @@
-// frontend/src/components/Navigation/ProfileButton.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
-import './ProfileButton.css'
 
 function ProfileButton({ user }) {
-  const dispatch = useDispatch();
-  const [showMenu, setShowMenu] = useState(false);
+    const dispatch = useDispatch();
+    const [showMenu, setShowMenu] = useState(false);
+    const history = useHistory();
 
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
-  };
+    const openMenu = () => {
+        if (showMenu) return;
+        setShowMenu(true);
+    }
 
-  useEffect(() => {
-    if (!showMenu) return;
+    useEffect(() => {
+        if (!showMenu) return;
 
-    const closeMenu = () => {
-      setShowMenu(false);
-    };
+        const closeMenu = () => {
+            setShowMenu(false);
+        };
 
-    document.addEventListener('click', closeMenu);
+        document.addEventListener('click', closeMenu);
 
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
+        return () => document.removeEventListener('click', closeMenu);
+    }, [showMenu]);
 
-  const logout = (e) => {
-    e.preventDefault();
-    dispatch(sessionActions.logout());
-  };
+    const logout = (e) => {
+        e.preventDefault();
+        history.push('/');
+        dispatch(sessionActions.logout());
+    }
 
-  return (
-    <>
-      <button className="profile_button_open"onClick={openMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
-      {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <button className="profile_button_off"onClick={logout}>Log Out</button>
-          </li>
-        </ul>
-      )}
-    </>
-  );
+    return (
+        <>
+            <div className = 'profile-button' onClick = { openMenu }>
+                {!showMenu && (
+                    <i className="far fa-user-circle fa-2x"></i>
+                )}
+            </div>
+            {showMenu && (
+                <div className = 'profile-container'>
+                    <ul className = 'profile-dropdown'>
+                        <li className = 'showMenu-items'>
+                            <i className="far fa-user-circle fa-lg"></i>
+                        </li>
+                        <li className = 'showMenu-items'>
+                            <NavLink className = 'profile-nav' to = '/profile'>
+                                 { user.username }
+                            </NavLink>
+                        </li>
+                        <li className = 'showMenu-items'>
+                            <i className="fas fa-envelope fa-lg"></i>
+                            <p className = 'profile-email-p'>{ user.email }</p>
+                        </li>
+                        <li className = 'showMenu-items'>
+                            <button className = 'profile-logout' onClick = { logout }>Log Out</button>
+                        </li>
+                    </ul>
+                </div>
+            )}
+        </>
+    );
 }
 
-export default ProfileButton;
+export default ProfileButton

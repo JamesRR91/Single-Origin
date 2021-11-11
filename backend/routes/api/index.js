@@ -10,4 +10,8 @@ router.use('/users', usersRouter);
 
 router.use('/recipe', recipeRouter);
 
+router.post('/test', (req, res) => {
+    res.json({ requestBody: req.body });
+  });
+
 module.exports = router;

@@ -2,12 +2,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import SignupForm from "./components/SignupFormModal";
 import SplashPage from "./components/SplashPage";
 import RecipeList from "./components/RecipeList";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import CreateRecipe from "./components/CreateRecipe"
+import CreateRecipe from "./components/CreateRecipeModal"
 
 function App() {
   const dispatch = useDispatch();
@@ -24,13 +23,10 @@ function App() {
         <Route exact path='/'>
           <SplashPage />
           </Route>
-          <Route path="/signup">
-            <SignupForm />
-          </Route>
           <Route exact path="/recipe">
             <RecipeList />
           </Route>
-          <Route path="/recipe/add">
+          <Route path="/create">
             <CreateRecipe />
           </Route>
         </Switch>

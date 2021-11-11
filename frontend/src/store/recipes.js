@@ -1,10 +1,11 @@
-const ADD_RECIPES ='recipe/addRecipes';
+const GET_RECIPES ='recipe/getRecipes';
 const ADD_ONE_RECIPE ='recipe/addOneRecipe';
+const UPDATE_RECIPE ='recipe/updateRecipes';
 const REMOVE_ONE_RECIPE ='recipe/removeOneRecipe';
 
-const addRecipes = payload => {
+const getRecipes = payload => {
     return {
-        type: ADD_RECIPES,
+        type: GET_RECIPES,
         payload,
     };
 };
@@ -27,7 +28,7 @@ export const getAllRecipes = () => async dispatch => {
     const response = await fetch('/api/recipe');
     if(response.ok) {
         const data = await response.json();
-        dispatch(addRecipes(data.recipes));
+        dispatch(getRecipes(data.recipes));
     }
 }
 
@@ -56,7 +57,7 @@ export const deleteRecipe = id => async dispatch => {
 const recipeReducer = (state={}, action) => {
     let newState = {};
     switch (action.type){
-        case ADD_RECIPES:
+        case GET_RECIPES:
         action.payload.forEach(recipe =>(newState[recipe.id]= recipe));
         return newState;
         case ADD_ONE_RECIPE:

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllRecipes } from '../../store/recipes';
 import RecipeDetail from '../RecipeDetail';
+import CreateRecipeModal from '../CreateRecipeModal';
 
 const RecipeList = () => {
     const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const RecipeList = () => {
                         description={description}
                     />
                 ))}
-                <Link to='recipe/add'><button>Make Your Own Recipe</button></Link>
+                <CreateRecipeModal />
         </div>
     )
 }

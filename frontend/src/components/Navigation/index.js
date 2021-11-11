@@ -27,7 +27,7 @@ function Navigation({ isLoaded }){
   return (
     <ul>
       <li>
-        <Link exact to="/"><button className='home-button'>Home</button></Link>
+        <Link to="/"><button className='home-button'>Home</button></Link>
         {isLoaded && sessionLinks}
       </li>
     </ul>

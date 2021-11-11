@@ -3,48 +3,61 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { addRecipe } from '../../store/recipes';
+// import  Dropdown  from "./Dropdown";
 
 const CreateRecipe = () => {
-    const [grinderid, setGrinderId] = useState('');
+    const [title, setTitle]= useState('');
     const [brewtype, setBrewType] = useState('');
     const [roasttype, setRoastType] = useState('');
+    const [grindlevel, setGrindLevel] = useState('');
     const [description, setDescription] = useState('');
     const history =useHistory();
     const dispatch=useDispatch();
 
-    const handleSubmit= (e) => {
+    const handleSubmit= async (e) => {
         e.preventDefault();
         const payload = {
-            grinderid,
+            title,
             brewtype,
             roasttype,
+            grindlevel,
             description
         };
-        dispatch(addRecipe(payload));
-
-        history.push('/');
+        let createdRecipe=await dispatch(addRecipe(payload));
+        if(createdRecipe){
+            history.push('/recipe');
+        }
     };
 
     return (
-        <div className="new-recipe">
-        <h3>Submit New Recipe</h3>
-        <form onSubmit={handleSubmit} className='new-recipe'>
-            <input
-            onChange={(e) =>setGrinderId(e.target.value)}
-            value={grinderid}
-            placeholder='Cheap Blade Grinder'
+        <section className="new-recipe-container">
+        <form onSubmit={handleSubmit} className='new-recipe-form'>
+            <label>Title</label>
+            <input type="text"
+            onChange={(e) =>setTitle(e.target.value)}
+            value={title}
+            placeholder='New Recipe'
             />
+            <label>Brew Method</label>
             <input
             onChange={(e) =>setBrewType(e.target.value)}
             value={brewtype}
             placeholder='Keurig'
             />
+            <label>Roast</label>
             <input
             onChange={(e) =>setRoastType(e.target.value)}
             value={roasttype}
             placeholder='Whatever I Can Get'
             />
+            <label>GrindLevel</label>
             <input
+            onChange={(e) =>setGrindLevel(e.target.value)}
+            value={grindlevel}
+            placeholder='Who Cares'
+            />
+            <label>Instructions</label>
+            <textarea
             onChange={(e) =>setDescription(e.target.value)}
             value={description}
             placeholder='Press Start, Pour'
@@ -53,7 +66,7 @@ const CreateRecipe = () => {
           Add Product
         </button>
         </form>
-        </div>
+        </section>
     )
 }
 export default CreateRecipe;
