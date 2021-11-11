@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { modifyRecipe } from '../../store/recipes';
@@ -10,18 +10,20 @@ const EditRecipe = () => {
     const { recipeId } = useParams();
     const recipe = useSelector(state =>state.recipe[recipeId])
     const sessionUser = useSelector((state) => state.session.user.id);
-    const [title, setTitle]= useState(recipe.title);
-    const [brewtype, setBrewType] = useState(recipe.brewtype);
-    const [roasttype, setRoastType] = useState(recipe.roasttype);
-    const [grindlevel, setGrindLevel] = useState(recipe.grindlevel);
-    const [coffeedose, setCoffeeDose] = useState(recipe.coffeedose);
-    const [waterdose, setWaterDose] = useState(recipe.waterdose);
-    const [brewtime, setBrewTime] = useState(recipe.brewtime);
-    const [description, setDescription] = useState(recipe.description);
+    const [title, setTitle]= useState('');
+    const [brewtype, setBrewType] = useState('');
+    const [roasttype, setRoastType] = useState('');
+    const [grindlevel, setGrindLevel] = useState('');
+    const [coffeedose, setCoffeeDose] = useState('');
+    const [waterdose, setWaterDose] = useState('');
+    const [brewtime, setBrewTime] = useState('');
+    const [description, setDescription] = useState('');
     const history =useHistory();
     const dispatch=useDispatch();
     console.log(useParams());
-
+    useEffect(() => {
+        dispatch(modifyRecipe());
+    }, [dispatch]);
     const handleSubmit= async (e) => {
         e.preventDefault();
         const payload = {

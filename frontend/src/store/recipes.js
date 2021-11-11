@@ -21,7 +21,7 @@ const addOneRecipe = payload => {
 const changeRecipe = payload => {
     return {
         type: UPDATE_RECIPE,
-        payload,
+        payload
     };
 };
 
@@ -53,13 +53,13 @@ export const addRecipe = recipe => async dispatch => {
 };
 
 export const modifyRecipe = (recipe) => async dispatch => {
-    const response=await csrfFetch(`/api/recipe/${recipe.data.id}`, {
+    const response=await csrfFetch(`/api/recipe/${recipe.payload.id}`, {
         method: 'PUT',
         headers:{"Content-Type": "application/json"},
-        body:JSON.stringify(recipe.data)
+        body:JSON.stringify(recipe.payload)
     })
     if (response.ok) {
-        dispatch(changeRecipe(recipe.data))
+        dispatch(changeRecipe(recipe.payload))
     }
 }
 export const deleteRecipe = id => async dispatch => {
