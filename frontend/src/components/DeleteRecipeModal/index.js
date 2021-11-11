@@ -3,7 +3,7 @@ import { Modal } from '../../context/Modal';
 import DeleteRecipe from './DeleteRecipe';
 
 
-function DeleteRecipeModal() {
+function DeleteRecipeModal({id}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -12,7 +12,7 @@ function DeleteRecipeModal() {
       <button className='login-button' onClick={() => setShowModal(true)}>Delete Your Recipe</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <DeleteRecipe />
+          <DeleteRecipe id={id}/>
         </Modal>
       )}
     </>

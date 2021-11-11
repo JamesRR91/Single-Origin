@@ -2,13 +2,13 @@ import {useDispatch} from 'react-redux';
 import { deleteRecipe } from '../../store/recipes';
 import {useParams, useHistory} from 'react-router-dom';
 
-function DeleteRecipe() {
+function DeleteRecipe({id}) {
     const {recipeId}=useParams()
     const dispatch= useDispatch();
     const history=useHistory();
 
     const deleteCheckPoint= async() => {
-        dispatch(deleteRecipe(recipeId))
+        dispatch(deleteRecipe(id))
         await history.push('/recipes')
     }
 

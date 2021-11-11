@@ -65,6 +65,7 @@ const EditRecipe = ({id}) => {
             onChange={(e) =>setBrewType(e.target.value)}
             value={brewtype}
             >
+            <option value=''>Please choose a method</option>
             <option value='Chemex'>Chemex</option>
             <option value='French Press'>French Press</option>
             <option value='Moka Pot'>Moka Pot</option>
@@ -76,6 +77,7 @@ const EditRecipe = ({id}) => {
             onChange={(e) =>setRoastType(e.target.value)}
             value={roasttype}
             >
+            <option value=''>Please choose a roast</option>
             <option value='Light Roast'>Light Roast</option>
             <option value='Medium Roast'>Medium Roast</option>
             <option value='Dark Roast'>Dark Roast</option>
@@ -86,6 +88,7 @@ const EditRecipe = ({id}) => {
             onChange={(e) =>setGrindLevel(e.target.value)}
             value={grindlevel}
             >
+            <option value=''>Please choose a grind setting</option>
             <option value='Very Coarse'>Very Coarse</option>
             <option value='Medium-Coarse'>Medium-Coarse</option>
             <option value='Medium'>Medium</option>

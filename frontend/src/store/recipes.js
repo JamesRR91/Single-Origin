@@ -53,13 +53,13 @@ export const addRecipe = recipe => async dispatch => {
 };
 
 export const modifyRecipe = (recipe) => async dispatch => {
-    const response=await csrfFetch(`/api/recipe/${recipe.payload.id}`, {
+    const response=await csrfFetch(`/api/recipe/${recipe.id}`, {
         method: 'PUT',
         headers:{"Content-Type": "application/json"},
-        body:JSON.stringify(recipe.payload)
+        body:JSON.stringify(recipe)
     })
     if (response.ok) {
-        dispatch(changeRecipe(recipe.payload))
+        dispatch(changeRecipe(recipe))
     }
 }
 export const deleteRecipe = id => async dispatch => {
