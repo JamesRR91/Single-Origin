@@ -11,13 +11,13 @@ const EditRecipe = () => {
     const recipe = useSelector(state =>state.recipe[recipeId])
     const sessionUser = useSelector((state) => state.session.user.id);
     const [title, setTitle]= useState(recipe.title);
-    const [brewtype, setBrewType] = useState('');
-    const [roasttype, setRoastType] = useState('');
-    const [grindlevel, setGrindLevel] = useState('');
-    const [coffeedose, setCoffeeDose] = useState('');
-    const [waterdose, setWaterDose] = useState('');
-    const [brewtime, setBrewTime] = useState('');
-    const [description, setDescription] = useState('');
+    const [brewtype, setBrewType] = useState(recipe.brewtype);
+    const [roasttype, setRoastType] = useState(recipe.roasttype);
+    const [grindlevel, setGrindLevel] = useState(recipe.grindlevel);
+    const [coffeedose, setCoffeeDose] = useState(recipe.coffeedose);
+    const [waterdose, setWaterDose] = useState(recipe.waterdose);
+    const [brewtime, setBrewTime] = useState(recipe.brewtime);
+    const [description, setDescription] = useState(recipe.description);
     const history =useHistory();
     const dispatch=useDispatch();
     console.log(useParams());
@@ -25,6 +25,7 @@ const EditRecipe = () => {
     const handleSubmit= async (e) => {
         e.preventDefault();
         const payload = {
+            ...recipe,
             userid:sessionUser,
             title,
             brewtype,

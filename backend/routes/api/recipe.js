@@ -48,6 +48,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
 
 router.put('/:id', validateRecipe, asyncHandler(async(req, res) => {
     const {
+        userid,
         title,
         brewtype,
         roasttype,
@@ -61,6 +62,7 @@ router.put('/:id', validateRecipe, asyncHandler(async(req, res) => {
     const recipeId = req.params.id;
     let recipe = await Recipe.findByPk(recipeId)
     const updatedRecipe = await recipe.update({
+        userid,
         title,
         brewtype,
         roasttype,
@@ -72,6 +74,13 @@ router.put('/:id', validateRecipe, asyncHandler(async(req, res) => {
     })
 
     res.json(updatedRecipe)
+}))
+
+router.delete('/:id', asyncHandler(async (req, res) => {
+    const recipeId=req.params.id;
+    let recipe=await Recipe.findByPk(recipeId);
+    await recipe.destroy()
+    res.json({message:'Recipe Deleted'})
 }))
 
 module.exports= router;
