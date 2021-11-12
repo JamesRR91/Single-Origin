@@ -10,6 +10,15 @@ const validateRecipe= [
     check('title')
         .exists({checkFalsy:true})
         .withMessage('Please enter a title'),
+    check('brewtype')
+        .exists({checkFalsy:true})
+        .withMessage('Please submit your brewing method'),
+    check('roasttype')
+        .exists({checkFalsy:true})
+        .withMessage('Please tell us what roast to use'),
+    check('grindlevel')
+        .exists({checkFalsy:true})
+        .withMessage('Please tell us how to grind this coffee'),
     check('coffeedose')
         .exists({checkFalsy:true})
         .withMessage('Please submit the reccomended amount of coffee for your recipe'),

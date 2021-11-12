@@ -17,6 +17,15 @@ const CreateRecipe = ({setShowModal}) => {
     const [description, setDescription] = useState('');
     const history =useHistory();
     const dispatch=useDispatch();
+    let message;
+    if (!sessionUser) {
+        message = (
+            <h3>
+            Please login to submit
+            </h3>
+
+        )
+    }
 
     const handleSubmit= async (e) => {
         e.preventDefault();
@@ -42,6 +51,7 @@ const CreateRecipe = ({setShowModal}) => {
     return (
         <section className="new-recipe-container">
         <form onSubmit={handleSubmit} className='new-recipe-form'>
+        {message}
             <label>Title</label>
             <input type="text"
             onChange={(e) =>setTitle(e.target.value)}

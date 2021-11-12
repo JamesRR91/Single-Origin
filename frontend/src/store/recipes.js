@@ -48,7 +48,7 @@ export const addRecipe = recipe => async dispatch => {
     });
     if(response.ok) {
         const data =await response.json();
-        dispatch(addOneRecipe(data.recipe));
+        dispatch(addOneRecipe(data));
     }
 };
 
