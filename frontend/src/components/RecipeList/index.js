@@ -15,6 +15,9 @@ const RecipeList = () => {
     }, [dispatch]);
     return (
         <div className="recipe-list-container">
+        <div className="create-button">
+        <CreateRecipeModal />
+        </div>
                 {recipes.map(({id, title, brewtype, roasttype, grindlevel, coffeedose, waterdose, brewtime, description}) => (
                     <RecipeDetail id={id}
                         key={id}
@@ -28,9 +31,6 @@ const RecipeList = () => {
                         description={description}
                     />
                 ))}
-                <div className="create-button">
-                <CreateRecipeModal />
-                </div>
         </div>
     )
 }

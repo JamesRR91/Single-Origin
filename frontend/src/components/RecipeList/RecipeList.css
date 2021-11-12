@@ -1,6 +1,8 @@
 .recipe-list-container {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color:black
 }
 
 .create-button {
@@ -9,4 +11,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: black;
 }

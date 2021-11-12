@@ -9,7 +9,9 @@ function CreateRecipeModal() {
   return (
 
     <>
-      <button className='login-button' onClick={() => setShowModal(true)}>Submit New Recipe</button>
+    <div className='modal-button-submit-container'>
+      <button className='modal-button-submit' onClick={() => setShowModal(true)}>Submit New Recipe</button>
+      </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <CreateRecipe setShowModal={setShowModal}/>

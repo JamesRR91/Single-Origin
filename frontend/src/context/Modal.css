@@ -20,10 +20,16 @@
 
   #modal-content {
     display: flex;
+    flex-direction: column;
     position: absolute;
-    width: 200px;
+    width: auto;
+    height: auto;
     background: #808080;
+    border: 1px solid black;
     align-items: center;
+    font-size: 2rem;
+    margin: 10%;
+    padding:4%;
   }
 
   .modal-form {
@@ -31,8 +37,8 @@
     flex-direction: column;
     align-items: center;
     margin:auto;
-    height:fit-content;
-    width: fit-content;
+    height:auto;
+    width: auto;
   }
 
   .modal-button {
@@ -43,8 +49,44 @@
     border-radius: .25em;
     cursor: pointer;
   }
+  .modal-button-submit {
+    flex: display;
+    flex-direction: row;
+    align-items:center;
+    justify-content: center;
+    background: hsl(200, 50%, 50%);
+    color: white;
+    border: none;
+    padding: .5em .75em;
+    border-radius: .25em;
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+  }
 
   label {
     font-size: 1.2rem;
+    align-items: center;
+  }
+
+  .modal-container {
+    width: 90%;
+    height: 90%;
+  }
+
+  .modal-errors {
+    text-align: start;
+    font-size: 1rem;
+
+  }
+
+  .modal-errors-container {
+    font-size: 1rem;
+  }
+
+  .create-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
   }

@@ -50,7 +50,9 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   })
   );
 
-  router.post('/', validateRecipe, asyncHandler(async (req, res) => {
+  router.post('/',
+   validateRecipe,
+    asyncHandler(async (req, res) => {
     const newRecipe = await Recipe.create(req.body);
     return res.json(newRecipe);
 }))

@@ -15,6 +15,7 @@ const CreateRecipe = ({setShowModal}) => {
     const [waterdose, setWaterDose] = useState('');
     const [brewtime, setBrewTime] = useState('');
     const [description, setDescription] = useState('');
+    const [errors, setErrors] = useState([]);
     const history =useHistory();
     const dispatch=useDispatch();
     let message;
@@ -29,6 +30,7 @@ const CreateRecipe = ({setShowModal}) => {
 
     const handleSubmit= async (e) => {
         e.preventDefault();
+        setErrors([]);
         const payload = {
             userid:sessionUser.id,
             title,
@@ -40,18 +42,27 @@ const CreateRecipe = ({setShowModal}) => {
             brewtime,
             description
         };
-        let createdRecipe=await dispatch(addRecipe(payload));
-        if(createdRecipe){
-            history.push('/recipe');
-        }
-        setShowModal(false);
+        // let createdRecipe=await dispatch(addRecipe(payload))
+        // if(createdRecipe){
+        //     history.push('/recipe');
+        // }
 
+        // setShowModal(false);
+        dispatch(addRecipe(payload)).catch(async (res) => {
+            const data=await res.json();
+            if(data && data.errors) setErrors(data.errors)
+        })
     };
 
     return (
-        <section className="new-recipe-container">
+        <section className="modal-container">
         <form onSubmit={handleSubmit} className='modal-form'>
         {message}
+        <ul className='modal-errors-container'>
+        {errors.map((error, idx) => (
+          <li className='modal-errors' key={idx}>{error}</li>
+        ))}
+      </ul>
             <label>Title</label>
             <input type="text"
             onChange={(e) =>setTitle(e.target.value)}

@@ -54,7 +54,7 @@ function LoginForm() {
           required
         />
       </label>
-      <button type="submit" className='modal-button'>Log In</button>
+      <button type="button" className='modal-button'>Log In</button>
       <button className='modal-button'onClick={demoLogin}>Demo Login</button>
     </form>
   );
