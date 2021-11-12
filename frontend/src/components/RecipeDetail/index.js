@@ -14,7 +14,6 @@ const RecipeDetail = ({ id, userid, grinderid, title, brewtype,roasttype,grindle
       <div className='button-row'>
         <EditRecipeModal id={id}/>
         <DeleteRecipeModal id={id}/>
-        <SingleRecipeModal id={id}/>
       </div>
     )
   }

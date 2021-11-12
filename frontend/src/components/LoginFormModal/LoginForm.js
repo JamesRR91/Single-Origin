@@ -14,10 +14,10 @@ function LoginForm() {
     <Redirect to="/" />
   );
 
-  const demoLogin = async () => {
-    const demoUser = { credential: 'Demo-lition', password: 'password' }
-    await dispatch(sessionActions.login(demoUser))
-}
+//   const demoLogin = async () => {
+//     const demoUser = { credential: 'Demo-lition', password: 'password' }
+//     return dispatch(sessionActions.login(demoUser))
+// }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,12 +37,11 @@ function LoginForm() {
         ))}
       </ul>
       <label>
-        Username or Email
+        Username/Email
         <input
           type="text"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
-          required
         />
       </label>
       <label>
@@ -50,12 +49,12 @@ function LoginForm() {
         <input
           type="password"
           value={password}
+          autocomplete="off"
           onChange={(e) => setPassword(e.target.value)}
-          required
         />
       </label>
       <button type="button" className='modal-button'>Log In</button>
-      <button className='modal-button'onClick={demoLogin}>Demo Login</button>
+      <button className='modal-button' onClick={() => {setCredential('Demo-lition'); setPassword('password');}}>Demo Login</button>
     </form>
   );
 }
