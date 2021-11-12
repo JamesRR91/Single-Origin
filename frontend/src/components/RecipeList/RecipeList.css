@@ -1,4 +1,12 @@
+.recipe-list-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .create-button {
-    padding:10px;
-    align-content: center;
+    margin: 19px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

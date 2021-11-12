@@ -84,9 +84,43 @@
     padding: .5em .75em;
     border-radius: .25em;
     cursor: pointer;
+    height:3rem;
+    width:5rem;
 }
 
-.button-row {
+.nav-row {
     display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 30px 10%;
+    background: rgba(0, 0, 0, 0.201);
+    border-radius: 5px;
+}
+
+ul {
+    display: flex;
     flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+}
+.form-button {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    
+}
+
+
+h3 {
+    font-weight: 500;
+    font-size: 30px;
+    text-decoration: none;
 }

@@ -17,7 +17,7 @@
   height: 50vw;
   position: absolute;
   color: white;
-  
+
 }
 
 .splashpage-header {
@@ -53,4 +53,5 @@
     width: 200px;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 }

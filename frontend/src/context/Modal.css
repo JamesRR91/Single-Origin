@@ -22,7 +22,8 @@
     display: flex;
     position: absolute;
     width: 200px;
-    background:silver;
+    background: #808080;
+    align-items: center;
   }
 
   .modal-form {
@@ -31,4 +32,19 @@
     align-items: center;
     margin:auto;
     height:fit-content;
+    width: fit-content;
+  }
+
+  .modal-button {
+    background: hsl(200, 50%, 50%);
+    color: white;
+    border: none;
+    padding: .5em .75em;
+    border-radius: .25em;
+    cursor: pointer;
+  }
+
+  label {
+    font-size: 1.2rem;
+    align-items: center;
   }

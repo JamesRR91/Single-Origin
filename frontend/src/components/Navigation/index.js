@@ -17,7 +17,7 @@ function Navigation({ isLoaded }){
     );
   } else {
     sessionLinks = (
-      <div>
+      <div className='form-button'>
         <LoginFormModal />
         <SignupFormModal />
       </div>
@@ -25,10 +25,11 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <div className="button-row">
+    <div className="nav-row">
+    <Link to="/"><button className='home-button'>Home</button></Link>
+    <h3>Single Origin</h3>
     <ul>
       <li>
-        <Link to="/"><button className='home-button'>Home</button></Link>
         {isLoaded && sessionLinks}
       </li>
     </ul>

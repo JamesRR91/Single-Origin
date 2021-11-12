@@ -55,7 +55,7 @@ const EditRecipe = ({id, setShowModal}) => {
 
     return (
         <section className="new-recipe-container">
-        <form onSubmit={handleSubmit} className='new-recipe-form'>
+        <form onSubmit={handleSubmit} className='modal-form'>
             <label>Title</label>
             <input type="text"
             onChange={(e) =>setTitle(e.target.value)}
@@ -122,7 +122,7 @@ const EditRecipe = ({id, setShowModal}) => {
             value={description}
             placeholder='Press Start, Pour'
             />
-            <button className='submit-button' type='submit'>
+            <button className='modal-button' type='submit'>
           Edit Product
         </button>
         </form>

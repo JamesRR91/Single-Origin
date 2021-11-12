@@ -71,7 +71,7 @@ function SignupForm() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
             />
-            <button type="submit">Sign Up</button>
+            <button className='modal-button' type="submit">Sign Up</button>
         </form>
     );
 }

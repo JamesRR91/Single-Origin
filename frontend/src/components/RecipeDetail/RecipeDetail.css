@@ -1,12 +1,17 @@
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
+    margin: 0 auto;
+    grid-gap: 1rem;
+    grid-template-columns:repeat(auto-fit,minmax(300px, 1fr));
     padding: 10px;
-    justify-content: flex-end;
+    justify-items:start;
+    align-items: flex-start;
 }
 .recipe-detail {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color:white;
     padding: 1rem;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
@@ -21,29 +26,22 @@
     transition: 0.3s;
 }
 
-.recipe-detail > li {
-    border:none;
-    box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
-    border-radius:20px;
-    text-align: center;
-    width: 250px;
-    transition: transform .3s;
-    align-items: center;
-    justify-content: start;
-}
-
 .recipe-title {
     font-size: 1.5rem;
     margin-bottom: .5rem;
     align-items: center;
+    justify-content: center;
 }
 
 .card-body {
     margin-top: .9rem;
     font-size: .9rem;
     padding: 2px 16px;
-    display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
+    display:flex;
+    flex-direction: column;
+    align-content: center;
 }
 
 .button {
@@ -62,4 +60,25 @@
 .button-row {
     display:flex;
     align-items: center
+}
+ul {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:flex-start;
+}
+
+li {
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items:center;
+    font-size:1.2rem;
+}
+
+.button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
 }
