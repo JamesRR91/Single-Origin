@@ -16,6 +16,7 @@
     text-decoration: none;
     list-style-type: none;
     width: 100%;
+    display: flex;
 }
 
 .login-li {
@@ -83,4 +84,9 @@
     padding: .5em .75em;
     border-radius: .25em;
     cursor: pointer;
+}
+
+.button-row {
+    display:flex;
+    flex-direction: row;
 }

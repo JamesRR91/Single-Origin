@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { addRecipe } from '../../store/recipes';
 // import  Dropdown  from "./Dropdown";
 
-const CreateRecipe = () => {
+const CreateRecipe = ({setShowModal}) => {
     const sessionUser = useSelector((state) => state.session.user);
     const [title, setTitle]= useState('');
     const [brewtype, setBrewType] = useState('');
@@ -35,7 +35,7 @@ const CreateRecipe = () => {
         if(createdRecipe){
             history.push('/recipe');
         }
-
+        setShowModal(false);
 
     };
 
@@ -109,7 +109,7 @@ const CreateRecipe = () => {
             placeholder='Press Start, Pour'
             />
             <button className='submit-button' type='submit'>
-          Add Product
+          Add Recipe
         </button>
         </form>
         </section>

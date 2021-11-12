@@ -7,11 +7,11 @@ function SplashPage(){
             <h2 className="splashpage-header">
             Welcome to Single Origin, a place for all home baristas.
             </h2>
-            </div>
             <Link to='/recipe'><button className="recipe-button">
              Find New Recipes
              </button>
              </Link>
+             </div>
             </div>
     );
 }

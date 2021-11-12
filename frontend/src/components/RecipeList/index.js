@@ -25,7 +25,9 @@ const RecipeList = () => {
                         description={description}
                     />
                 ))}
+                <div className="create-button">
                 <CreateRecipeModal />
+                </div>
         </div>
     )
 }

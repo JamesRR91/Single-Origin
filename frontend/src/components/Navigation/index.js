@@ -25,12 +25,14 @@ function Navigation({ isLoaded }){
   }
 
   return (
+    <div className="button-row">
     <ul>
       <li>
         <Link to="/"><button className='home-button'>Home</button></Link>
         {isLoaded && sessionLinks}
       </li>
     </ul>
+    </div>
   );
 }
 

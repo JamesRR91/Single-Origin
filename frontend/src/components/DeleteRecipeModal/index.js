@@ -12,7 +12,7 @@ function DeleteRecipeModal({id}) {
       <button className='login-button' onClick={() => setShowModal(true)}>Delete Your Recipe</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <DeleteRecipe id={id}/>
+          <DeleteRecipe id={id} setShowModal={setShowModal}/>
         </Modal>
       )}
     </>

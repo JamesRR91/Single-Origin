@@ -6,7 +6,7 @@ import { modifyRecipe } from '../../store/recipes';
 import { useParams } from 'react-router-dom';
 // import  Dropdown  from "./Dropdown";
 
-const EditRecipe = ({id}) => {
+const EditRecipe = ({id, setShowModal}) => {
     const recipe = useSelector(state =>state.recipe[id])
     const sessionUser = useSelector((state) => state.session.user.id);
     const [title, setTitle]= useState('');
@@ -49,6 +49,8 @@ const EditRecipe = ({id}) => {
         if(createdRecipe){
             history.push('/recipe');
         }
+
+        setShowModal(false);
     };
 
     return (

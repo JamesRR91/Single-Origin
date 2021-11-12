@@ -12,7 +12,7 @@ function CreateRecipeModal() {
       <button className='login-button' onClick={() => setShowModal(true)}>Submit New Recipe</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CreateRecipe />
+          <CreateRecipe setShowModal={setShowModal}/>
         </Modal>
       )}
     </>
