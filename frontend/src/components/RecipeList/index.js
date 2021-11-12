@@ -15,13 +15,16 @@ const RecipeList = () => {
     }, [dispatch]);
     return (
         <div className="recipe-list-container">
-                {recipes.map(({id, title, brewtype, roasttype, grindlevel, description}) => (
+                {recipes.map(({id, title, brewtype, roasttype, grindlevel, coffeedose, waterdose, brewtime, description}) => (
                     <RecipeDetail id={id}
                         key={id}
                         title={title}
                         brewtype={brewtype}
                         roasttype={roasttype}
                         grindlevel={grindlevel}
+                        coffeedose={coffeedose}
+                        waterdose={waterdose}
+                        brewtime={brewtime}
                         description={description}
                     />
                 ))}

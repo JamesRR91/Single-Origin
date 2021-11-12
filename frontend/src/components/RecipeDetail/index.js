@@ -1,15 +1,24 @@
-import { useDispatch } from 'react-redux';
-import { deleteRecipe } from '../../store/recipes';
+import { useDispatch, useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
 import EditRecipeModal from '../EditRecipeModal';
 import DeleteRecipeModal from '../DeleteRecipeModal';
+import SingleRecipeModal from '../SingleRecipeModal';
 import './RecipeDetail.css';
 
 const RecipeDetail = ({ id, userid, grinderid, title, brewtype,roasttype,grindlevel,coffeedose,waterdose,brewtime,description }) => {
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user)
+  let sessionLinks;
+  if(sessionUser) {
+    sessionLinks= (
+      <div>
+        <EditRecipeModal id={id}/>
+        <DeleteRecipeModal id={id}/>
+        <SingleRecipeModal id={id}/>
+      </div>
+    )
+  }
 
-  const handleDelete = (id) => {
-    dispatch(deleteRecipe(id));
-  };
   return (
     <div className="card-grid">
     <div className='recipe-detail'>
@@ -26,8 +35,7 @@ const RecipeDetail = ({ id, userid, grinderid, title, brewtype,roasttype,grindle
       </ul>
       </div>
       <div className='button-row'>
-        <EditRecipeModal id={id}/>
-        <DeleteRecipeModal id={id}/>
+        {sessionLinks}
       </div>
     </div>
     </div>
