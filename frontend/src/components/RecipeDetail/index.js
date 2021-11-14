@@ -1,7 +1,8 @@
 import { useDispatch, useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
 import EditRecipeModal from '../EditRecipeModal';
 import DeleteRecipeModal from '../DeleteRecipeModal';
+import OneRecipe from '../OneRecipe';
 import SingleRecipeModal from '../SingleRecipeModal';
 import './RecipeDetail.css';
 
@@ -14,6 +15,7 @@ const RecipeDetail = ({ id, userid, grinderid, title, brewtype,roasttype,grindle
       <div className='button-row'>
         <EditRecipeModal id={id}/>
         <DeleteRecipeModal id={id}/>
+        <SingleRecipeModal id={id}/>
       </div>
     )
   }

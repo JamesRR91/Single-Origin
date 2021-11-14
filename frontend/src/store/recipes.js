@@ -40,6 +40,20 @@ export const getAllRecipes = () => async dispatch => {
     }
 }
 
+export const justOneRecipe =({recipeId}) => async (dispatch) => {
+    const response = await csrfFetch(`/api/recipe/${recipeId}`, {
+        method: 'GET',
+        headers: {
+            "Content-Type": "application/json"
+        },
+    });
+
+    if (response.ok) {
+        const recipe=await response.json();
+        return recipe;
+    }
+}
+
 export const addRecipe = recipe => async dispatch => {
     const response = await csrfFetch('/api/recipe', {
         method: 'POST',
@@ -78,6 +92,9 @@ const recipeReducer = (state={}, action) => {
         case GET_RECIPES:
         action.payload.forEach(recipe =>(newState[recipe.id]= recipe));
         return newState;
+        // case GET_ONE_RECIPE:
+        //     const newState={...state};
+        //     newState[action.payload.id]= action.payload;
         case ADD_ONE_RECIPE:
             newState={...state,[action.payload.id]:action.payload};
             return newState;

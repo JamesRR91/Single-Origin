@@ -1,59 +1,59 @@
 import {csrfFetch} from './csrf'
-const GET_Comments ='recipe/getComments';
-const ADD_ONE_Comment ='Comment/addOneComment';
-const UPDATE_Comment ='Comment/updateComments';
-const REMOVE_ONE_Comment ='Comment/removeOneComment';
+const GET_COMMENTS ='comments/getComments';
+const ADD_ONE_COMMENT ='comments/addOneComment';
+const UPDATE_COMMENT ='comments/updateComments';
+const REMOVE_ONE_COMMENT ='comments/removeOneComment';
 
 const getComments = payload => {
     return {
-        type: GET_Comments,
-        payload,
+        type: GET_COMMENTS,
+        payload
     };
 };
 
 const addOneComment = payload => {
     return {
-        type: ADD_ONE_Comment,
+        type: ADD_ONE_COMMENT,
         payload,
     };
 };
 
 const changeComment = payload => {
     return {
-        type: UPDATE_Comment,
+        type: UPDATE_COMMENT,
         payload
     };
 };
 
 const removeOneComment = id => {
     return {
-        type: REMOVE_ONE_Comment,
-        payload: id,
+        type: REMOVE_ONE_COMMENT,
+        id
     };
 };
 
 export const getAllComments = () => async dispatch => {
-    const response = await fetch('/api/recipe');
+    const response = await fetch('/api/comments');
     if(response.ok) {
         const data = await response.json();
-        dispatch(getComments(data.Comments));
+        dispatch(getComments(data.comments));
     }
 }
 
 export const addComment = comment => async dispatch => {
-    const response = await csrfFetch('/api/recipe', {
+    const response = await csrfFetch('/api/comments', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(comment),
     });
     if(response.ok) {
         const data =await response.json();
-        dispatch(addOneRecipe(data.comment));
+        dispatch(addOneComment(data.comment));
     }
 };
 
 export const modifyRecipe = (comment) => async dispatch => {
-    const response=await csrfFetch(`/api/recipe/${comment.id}`, {
+    const response=await csrfFetch(`/api/comments/${comment.id}`, {
         method: 'PUT',
         headers:{"Content-Type": "application/json"},
         body:JSON.stringify(comment)
@@ -63,7 +63,7 @@ export const modifyRecipe = (comment) => async dispatch => {
     }
 }
 export const deleteComment = id => async dispatch => {
-    const response = await csrfFetch(`/api/recipe/${id}`,{
+    const response = await csrfFetch(`/api/comments/${id}`,{
         method: 'DELETE',
     });
 
@@ -76,16 +76,16 @@ const commentReducer = (state={}, action) => {
     let newState = {};
     switch (action.type){
         case GET_COMMENTS:
-        action.payload.forEach(comment =>(newState[recipe.id]= recipe));
+        action.payload.forEach(comment =>(newState[comment.id]= comment));
         return newState;
-        case ADD_ONE_RECIPE:
+        case ADD_ONE_COMMENT:
             newState={...state,[action.id]:action};
             return newState;
-        case UPDATE_RECIPE:
+        case UPDATE_COMMENT:
             newState={...state}
             newState[action.payload.id]=action.payload
             return newState;
-        case REMOVE_ONE_RECIPE:
+        case REMOVE_ONE_COMMENT:
             newState={...state};
             delete newState[action.payload];
             return newState;
@@ -93,4 +93,4 @@ const commentReducer = (state={}, action) => {
             return state;
     }
 };
-export default recipeReducer;
+export default commentReducer;

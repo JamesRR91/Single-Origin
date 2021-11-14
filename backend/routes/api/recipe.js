@@ -1,8 +1,8 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check, validationResult } =require('express-validator');
-const { Recipe } = require('../../db/models');
-const db= require('../../db/models')
+const { Recipe, Comment } = require('../../db/models');
+// const db= require('../../db/models')
 const {handleValidationErrors} = require('../../utils/validation');
 const router = express.Router();
 
@@ -34,16 +34,24 @@ const validateRecipe= [
     handleValidationErrors,
 ];
 
-router.get('/', asyncHandler(async (req, res) => {
-    const recipes = await Recipe.findAll();
+router.get(
+    '/',
+     asyncHandler(async (req, res) => {
+    const recipes = await Recipe.findAll({
+        include:Comment
+    });
     return res.json({ recipes });
 })
 );
-router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
-    const recipe = await Recipe.findByPk(req.params.id);
-    if(recipe) {
-        return res.json({ recipe });
-    }
+
+router.get(
+    '/:id',
+     asyncHandler(async (req, res, next) => {
+    const recipeId=req.params.id;
+    const recipe = await Recipe.findByPk(recipeId, {
+        include:Comment
+    });
+    return res.json({ recipe, });
     // } else {
     //     next(recipeNotFoundError(req.params.id));
     // }
