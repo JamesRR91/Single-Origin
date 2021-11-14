@@ -5,6 +5,11 @@ const { Comment, Recipe } = require ('../../db/models');
 const {handleValidationErrors} = require('../../utils/validation');
 const router = express.Router();
 
+const validateComment= [
+    check('description')
+        .exists({checkFalsy: true})
+        .withMessage('Please submit a proper comment')
+];
 router.get(
     '/',
     asyncHandler(async(req, res) => {
@@ -18,5 +23,13 @@ router.get(
         const {id}=req.params;
     })
 )
+
+router.post(
+    '/',
+    validateComment,
+    asyncHandler(async(req, res) => {
+        const newComment= await Comment.create(req.body);
+        return res.json({newComment});
+    }));
 
     module.exports = router;

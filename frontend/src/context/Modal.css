@@ -93,4 +93,10 @@
 
   .comment-container {
     background-color:silver;
+
+  }
+
+  .comment-container-single {
+    box-sizing: border-box;
+    border: solid black 2px;
   }

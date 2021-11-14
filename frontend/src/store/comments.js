@@ -48,11 +48,11 @@ export const addComment = comment => async dispatch => {
     });
     if(response.ok) {
         const data =await response.json();
-        dispatch(addOneComment(data.comment));
+        dispatch(addOneComment(data.newComment));
     }
 };
 
-export const modifyRecipe = (comment) => async dispatch => {
+export const modifyComment = (comment) => async dispatch => {
     const response=await csrfFetch(`/api/comments/${comment.id}`, {
         method: 'PUT',
         headers:{"Content-Type": "application/json"},

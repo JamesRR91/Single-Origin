@@ -4,11 +4,13 @@ import { useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import EditRecipeModal from '../EditRecipeModal';
 import DeleteRecipeModal from '../DeleteRecipeModal';
-import CommentListModal from '../CommentListModal';
+import CreateCommentModal from '../CreateCommentModal';
 
 const SingleRecipe = ({ id, setShowModal}) => {
     const sessionUser = useSelector((state) =>state.session.user.id);
     const recipes = useSelector((state) => state.recipe[id])
+    console.log(recipes);
+    console.log(sessionUser);
     const dispatch = useDispatch();
     const [title, setTitle]= useState('');
     const [brewtype, setBrewType] = useState('');
@@ -63,6 +65,7 @@ const SingleRecipe = ({ id, setShowModal}) => {
         <div className='button-row'>
           <EditRecipeModal id={id}/>
           <DeleteRecipeModal id={id}/>
+          <CreateCommentModal id={id} recipes={recipes} sessionUser={sessionUser}/>
         </div>
         <div className='comment-container'>
           {commentDescriptions.map(comment => (
