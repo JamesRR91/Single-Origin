@@ -9,7 +9,7 @@ function CreateCommentModal() {
 
       <>
       <div className='modal-button-submit-container'>
-        <button className='modal-button-submit' onClick={() => setShowModal(true)}>Add A Comment</button>
+        <button className='modal-button' onClick={() => setShowModal(true)}>Add A Comment</button>
         </div>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>

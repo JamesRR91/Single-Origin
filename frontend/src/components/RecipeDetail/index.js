@@ -24,13 +24,13 @@ const RecipeDetail = ({ id,title, brewtype,roasttype,grindlevel,coffeedose,water
     <h3 className='recipe-title'>{title}</h3>
       <div className='card-body'>
       <ul className='recipe-single-card-container'>
-      <li className='recipe-brew'>How are you brewing?: {brewtype}</li>
-      <li className='recipe-roast'>What type of roast?: {roasttype}</li>
-      <li className='recipe-grind'>What type of grind? {grindlevel}</li>
-      <li className='recipe-coffee'>How much coffee?: {coffeedose}</li>
-      <li className='recipe-water'>How much water?: {waterdose}</li>
-      <li className='recipe-time'>How long?: {brewtime}</li>
-      <li className="recipe-description">Anything else?: {description}</li>
+      <li className="recipe-detail-list">How are you brewing?: {brewtype}</li>
+      <li className="recipe-detail-list">What type of roast?: {roasttype}</li>
+      <li className="recipe-detail-list">What type of grind? {grindlevel}</li>
+      <li className="recipe-detail-list">How much coffee?: {coffeedose}</li>
+      <li className="recipe-detail-list">How much water?: {waterdose}</li>
+      <li className="recipe-detail-list">How long?: {brewtime}</li>
+      <li className="recipe-detail-list">Anything else?: {description}</li>
       </ul>
       </div>
       <div>

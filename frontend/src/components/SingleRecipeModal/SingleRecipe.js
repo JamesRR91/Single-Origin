@@ -50,16 +50,16 @@ const SingleRecipe = ({ id, setShowModal}) => {
       <div className='recipe-detail-single'>
       <h3 className='recipe-title-single'>{title}</h3>
         <div className='card-body-single'>
-        <ul>
-        <li className='recipe-brew-single'>How are you brewing?:{brewtype}</li>
-        <li className='recipe-roast-single'>What type of roast?:{roasttype}</li>
-        <li className='recipe-grind-single'>What type of grind?{grindlevel}</li>
-        <li className='recipe-coffee-single'>How much coffee?{coffeedose}</li>
-        <li className='recipe-water-single'>How much water?{waterdose}</li>
-        <li className='recipe-time-single'>How long?{brewtime}</li>
-        <li className="recipe-description-single">{description}</li>
+        <ul className='recipe-detail-list-container'>
+        <li className='recipe-detail-list'>How are you brewing?: {brewtype}</li>
+        <li className='recipe-detail-list'>What type of roast?: {roasttype}</li>
+        <li className='recipe-detail-list'>What type of grind?: {grindlevel}</li>
+        <li className='recipe-detail-list'>How much coffee?: {coffeedose}</li>
+        <li className='recipe-detail-list'>How much water?: {waterdose}</li>
+        <li className='recipe-detail-list'>How long?: {brewtime}</li>
+        <li className="recipe-detail-list">Anything else?: {description}</li>
         </ul>
-        </div>
+      </div>
         <div className='button-row'>
           <EditRecipeModal id={id}/>
           <DeleteRecipeModal id={id}/>

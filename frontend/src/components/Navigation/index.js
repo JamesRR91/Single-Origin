@@ -27,7 +27,7 @@ function Navigation({ isLoaded }){
   return (
     <div className="nav-row">
     <Link to="/"><button className='home-button'>Home</button></Link>
-    <h3>Single Origin</h3>
+    <img className="nav-logo" alt='logo'src='/images/Single_Origin_Logo.png' />
     <ul className='nav-list'>
       <li>
         {isLoaded && sessionLinks}

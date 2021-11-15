@@ -100,3 +100,26 @@
     box-sizing: border-box;
     border: solid black 2px;
   }
+
+  .recipe-title-single {
+    text-align: center;
+  }
+
+  .recipe-detail-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin:0 auto;
+    text-align: left;
+  }
+
+  .recipe-detail-list-container {
+    text-align: left;
+    font-size: 15px;
+  }
+
+  .card-body-single {
+
+    text-align: left;
+  }
