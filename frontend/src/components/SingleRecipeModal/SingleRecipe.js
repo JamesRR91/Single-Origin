@@ -61,7 +61,7 @@ const SingleRecipe = ({ id, setShowModal}) => {
         <div className='button-row'>
           <EditRecipeModal id={id}/>
           <DeleteRecipeModal id={id}/>
-          <CreateCommentModal id={id} recipes={recipes} sessionUser={sessionUser}/>
+          <CreateCommentModal id={id} />
         </div>
         <div className='comment-container'>
           {commentDescriptions.map(comment => (

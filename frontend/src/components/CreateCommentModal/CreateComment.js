@@ -3,9 +3,10 @@ import {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { addComment } from '../../store/comments';
 
-const CreateComment = ({id, setShowModal,}) => {
+const CreateComment = ({id, setShowModal}) => {
     const sessionUser = useSelector((state) =>state.session.user)
-    const recipe = useSelector((state) => state.recipe[sessionUser.id])
+    const recipes = useSelector((state) => Object.values(state.recipe))
+    const specificRecipe=recipes.find(recipe => recipe.id===id);
     const [description, setDescription]=useState('');
     const [errors, setErrors]=useState([]);
     const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const CreateComment = ({id, setShowModal,}) => {
         setErrors([]);
         const payload= {
             userid:sessionUser.id,
-            recipeid:recipe.id,
+            recipeid:specificRecipe.id,
             description
         };
         dispatch(addComment(payload)).catch(async (res) => {

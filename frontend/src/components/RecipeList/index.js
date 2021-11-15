@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllRecipes } from '../../store/recipes';
 import RecipeDetail from '../RecipeDetail';
@@ -8,7 +9,10 @@ const RecipeList = () => {
     const dispatch = useDispatch();
 
     const recipes = useSelector(state => Object.values(state.recipe));
+    if(recipes.length>0) {
+        console.log('xxxx',recipes[0].id);
 
+    }
     useEffect(() => {
         dispatch(getAllRecipes());
     }, [dispatch]);
@@ -18,7 +22,7 @@ const RecipeList = () => {
         <CreateRecipeModal />
         </div>
         <div className='recipe-list-single'>
-                {recipes.map(({id, title, brewtype, roasttype, grindlevel, coffeedose, waterdose, brewtime, description}) => (
+                {recipes.length>0 ? recipes.map(({id, title, brewtype, roasttype, grindlevel, coffeedose, waterdose, brewtime, description}) => (
                     <RecipeDetail id={id}
                         key={id}
                         title={title}
@@ -30,7 +34,7 @@ const RecipeList = () => {
                         brewtime={brewtime}
                         description={description}
                     />
-                ))}
+                )):null}
                 </div>
         </div>
     )

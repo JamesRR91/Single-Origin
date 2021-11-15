@@ -7,6 +7,7 @@ import './RecipeDetail.css';
 const RecipeDetail = ({ id,title, brewtype,roasttype,grindlevel,coffeedose,waterdose,brewtime,description }) => {
   const sessionUser = useSelector(state => state.session.user)
   let sessionLinks;
+  console.log('KILL ME',id);
   if(sessionUser) {
     sessionLinks= (
       <div className='button-row'>
