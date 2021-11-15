@@ -9,10 +9,6 @@ const RecipeList = () => {
     const dispatch = useDispatch();
 
     const recipes = useSelector(state => Object.values(state.recipe));
-    if(recipes.length>0) {
-        console.log('xxxx',recipes[0].id);
-
-    }
     useEffect(() => {
         dispatch(getAllRecipes());
     }, [dispatch]);
