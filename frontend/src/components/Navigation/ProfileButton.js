@@ -38,8 +38,8 @@ function ProfileButton({ user }) {
           </button>
           {showMenu && (
             <ul className="profile-dropdown">
-              <li className='profile-list-item'>{user.username}</li>
-              <li className='profile-list-item'>{user.email}</li>
+              <li className='profile-list-item'>Username:{user.username}</li>
+              <li className='profile-list-item'>Email:{user.email}</li>
               <li>
                 <button className='modal-button'onClick={logout}>Log Out</button>
               </li>
