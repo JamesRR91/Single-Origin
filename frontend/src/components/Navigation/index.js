@@ -28,7 +28,7 @@ function Navigation({ isLoaded }){
     <div className="nav-row">
     <Link to="/"><button className='home-button'>Home</button></Link>
     <h3>Single Origin</h3>
-    <ul>
+    <ul className='nav-list'>
       <li>
         {isLoaded && sessionLinks}
       </li>

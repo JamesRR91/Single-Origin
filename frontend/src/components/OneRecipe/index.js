@@ -1,12 +1,10 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import {useHistory} from 'react-router-dom';
 import EditRecipeModal from '../EditRecipeModal';
 import DeleteRecipeModal from '../DeleteRecipeModal';
 
 const OneRecipe = ({ id, setShowModal}) => {
-    const sessionUser = useSelector((state) =>state.session.user.id);
     const recipe = useSelector((state) => state.recipe[id])
     const dispatch = useDispatch();
     const [title, setTitle]= useState('');

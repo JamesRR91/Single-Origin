@@ -1,13 +1,10 @@
-import { useDispatch, useSelector} from 'react-redux';
-import {Link, Route} from 'react-router-dom';
+import { useSelector} from 'react-redux';
 import EditRecipeModal from '../EditRecipeModal';
 import DeleteRecipeModal from '../DeleteRecipeModal';
-import OneRecipe from '../OneRecipe';
 import SingleRecipeModal from '../SingleRecipeModal';
 import './RecipeDetail.css';
 
-const RecipeDetail = ({ id, userid, grinderid, title, brewtype,roasttype,grindlevel,coffeedose,waterdose,brewtime,description }) => {
-  const dispatch = useDispatch();
+const RecipeDetail = ({ id,title, brewtype,roasttype,grindlevel,coffeedose,waterdose,brewtime,description }) => {
   const sessionUser = useSelector(state => state.session.user)
   let sessionLinks;
   if(sessionUser) {
@@ -21,11 +18,12 @@ const RecipeDetail = ({ id, userid, grinderid, title, brewtype,roasttype,grindle
   }
 
   return (
+    <div className='center-div'>
     <div className="card-grid">
     <div className='recipe-detail'>
     <h3 className='recipe-title'>{title}</h3>
       <div className='card-body'>
-      <ul>
+      <ul className='recipe-single-card-container'>
       <li className='recipe-brew'>How are you brewing?: {brewtype}</li>
       <li className='recipe-roast'>What type of roast?: {roasttype}</li>
       <li className='recipe-grind'>What type of grind? {grindlevel}</li>
@@ -38,6 +36,7 @@ const RecipeDetail = ({ id, userid, grinderid, title, brewtype,roasttype,grindle
       <div>
         {sessionLinks}
       </div>
+    </div>
     </div>
     </div>
   );

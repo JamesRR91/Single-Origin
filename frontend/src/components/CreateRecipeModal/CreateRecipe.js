@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { addRecipe } from '../../store/recipes';
 // import  Dropdown  from "./Dropdown";
 
@@ -16,7 +15,6 @@ const CreateRecipe = ({setShowModal}) => {
     const [brewtime, setBrewTime] = useState('');
     const [description, setDescription] = useState('');
     const [errors, setErrors] = useState([]);
-    const history =useHistory();
     const dispatch=useDispatch();
     let message;
     if (!sessionUser) {
@@ -47,11 +45,11 @@ const CreateRecipe = ({setShowModal}) => {
         //     history.push('/recipe');
         // }
 
-        // setShowModal(false);
         dispatch(addRecipe(payload)).catch(async (res) => {
             const data=await res.json();
             if(data && data.errors) setErrors(data.errors)
         })
+        setShowModal(false);
     };
 
     return (

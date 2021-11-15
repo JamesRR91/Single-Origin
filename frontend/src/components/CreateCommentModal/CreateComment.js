@@ -1,7 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useHistory} from 'react-router-dom';
 import { addComment } from '../../store/comments';
 
 const CreateComment = ({id, setShowModal,}) => {
@@ -13,7 +12,6 @@ const CreateComment = ({id, setShowModal,}) => {
     const [description, setDescription]=useState('');
     const [errors, setErrors]=useState([]);
     const dispatch = useDispatch();
-    const history =useHistory();
 
     const handleSubmit= async (e) => {
         e.preventDefault();

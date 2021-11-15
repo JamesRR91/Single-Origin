@@ -1,9 +1,8 @@
 import {useDispatch} from 'react-redux';
 import { deleteRecipe } from '../../store/recipes';
-import {useParams, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 function DeleteRecipe({id, setShowModal}) {
-    const {recipeId}=useParams()
     const dispatch= useDispatch();
     const history=useHistory();
 

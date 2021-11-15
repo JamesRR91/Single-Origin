@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllRecipes } from '../../store/recipes';
 import RecipeDetail from '../RecipeDetail';
@@ -18,6 +17,7 @@ const RecipeList = () => {
         <div className="create-button">
         <CreateRecipeModal />
         </div>
+        <div className='recipe-list-single'>
                 {recipes.map(({id, title, brewtype, roasttype, grindlevel, coffeedose, waterdose, brewtime, description}) => (
                     <RecipeDetail id={id}
                         key={id}
@@ -31,6 +31,7 @@ const RecipeList = () => {
                         description={description}
                     />
                 ))}
+                </div>
         </div>
     )
 }

@@ -99,11 +99,12 @@
     border-radius: 5px;
 }
 
-ul {
+.nav-list {
     display: flex;
     flex-direction: row;
     justify-content:space-between;
     align-items: center;
+    text-align: center;
 }
 
 li {
@@ -125,4 +126,32 @@ h3 {
     font-weight: 500;
     font-size: 30px;
     text-decoration: none;
+}
+
+i {
+    width: 2rem;
+    height: 1rem;
+    text-align: center;
+}
+
+.center-profile {
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    justify-items: center;
+}
+
+.profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    background: hsl(0, 0%, 90%);
+    align-items: center;
+    justify-content: flex-start;
+    padding:0;
+}
+
+.profile-list-item {
+    display: flex;
+    justify-content: flex-start;
+    text-align: flex-start;
 }

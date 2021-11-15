@@ -6,8 +6,6 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SplashPage from "./components/SplashPage";
 import RecipeList from "./components/RecipeList";
-import OneRecipe from "./components/OneRecipe";
-import CreateRecipe from "./components/CreateRecipeModal"
 
 function App() {
   const dispatch = useDispatch();
@@ -27,9 +25,6 @@ function App() {
           </Route>
           <Route exact path="/recipe">
             <RecipeList />
-          </Route>
-          <Route exact path="/recipe/:id/">
-            <OneRecipe />
           </Route>
         </Switch>
       )}

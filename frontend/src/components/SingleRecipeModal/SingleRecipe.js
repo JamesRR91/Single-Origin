@@ -1,7 +1,6 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
-import {useHistory} from 'react-router-dom';
 import EditRecipeModal from '../EditRecipeModal';
 import DeleteRecipeModal from '../DeleteRecipeModal';
 import CreateCommentModal from '../CreateCommentModal';
@@ -22,7 +21,6 @@ const SingleRecipe = ({ id, setShowModal}) => {
     const [description, setDescription] = useState('');
 
     const recipesArray=Object.assign([], recipes);
-    const recipesValue=Object.values(recipes.Comments)
     const commentDescriptions= recipesArray.Comments.map(comment => {
       return comment.description
     });

@@ -1,9 +1,7 @@
 import React from 'react';
 import { useState, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { modifyRecipe } from '../../store/recipes';
-import { useParams } from 'react-router-dom';
 // import  Dropdown  from "./Dropdown";
 
 const EditRecipe = ({id, setShowModal}) => {
@@ -18,7 +16,6 @@ const EditRecipe = ({id, setShowModal}) => {
     const [brewtime, setBrewTime] = useState('');
     const [description, setDescription] = useState('');
     const [errors, setErrors] = useState([]);
-    const history =useHistory();
     const dispatch=useDispatch();
     useEffect(() => {
         if(recipe) {
