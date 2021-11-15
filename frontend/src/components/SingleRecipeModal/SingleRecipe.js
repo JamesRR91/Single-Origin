@@ -8,8 +8,6 @@ import CreateCommentModal from '../CreateCommentModal';
 const SingleRecipe = ({ id, setShowModal}) => {
     const sessionUser = useSelector((state) =>state.session.user.id);
     const recipes = useSelector((state) => state.recipe[id])
-    console.log(recipes);
-    console.log(sessionUser);
     const dispatch = useDispatch();
     const [title, setTitle]= useState('');
     const [brewtype, setBrewType] = useState('');

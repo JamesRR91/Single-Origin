@@ -109,7 +109,6 @@ const recipeReducer = (state={}, action) => {
             return newState;
         case ADD_ONE_COMMENT:
             newState={...state};
-            console.log('The ACTION',action);
             newState[action.payload.recipeid].Comments.push(action.payload);
             return newState;
         default:

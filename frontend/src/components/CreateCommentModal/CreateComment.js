@@ -6,9 +6,6 @@ import { addComment } from '../../store/comments';
 const CreateComment = ({id, setShowModal,}) => {
     const sessionUser = useSelector((state) =>state.session.user)
     const recipe = useSelector((state) => state.recipe[sessionUser.id])
-    console.log('Theid',id)
-    console.log('Therecipe',recipe);
-    console.log('SessionUser',sessionUser.id);
     const [description, setDescription]=useState('');
     const [errors, setErrors]=useState([]);
     const dispatch = useDispatch();
