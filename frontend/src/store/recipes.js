@@ -4,6 +4,7 @@ const ADD_ONE_RECIPE ='recipe/addOneRecipe';
 const UPDATE_RECIPE ='recipe/updateRecipes';
 const REMOVE_ONE_RECIPE ='recipe/removeOneRecipe';
 const ADD_ONE_COMMENT ='comments/addOneComment';
+const UPDATE_COMMENT ='comments/updateComment';
 
 const getRecipes = payload => {
     return {
@@ -110,6 +111,10 @@ const recipeReducer = (state={}, action) => {
         case ADD_ONE_COMMENT:
             newState={...state};
             newState[action.payload.recipeid].Comments.push(action.payload);
+            return newState;
+        case UPDATE_COMMENT:
+            newState={...state};
+            newState[action.payload.recipeid].Comments=action.payload;
             return newState;
         default:
             return state;
