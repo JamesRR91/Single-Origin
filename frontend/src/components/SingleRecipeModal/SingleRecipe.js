@@ -23,6 +23,16 @@ const SingleRecipe = ({ id, setShowModal}) => {
     const commentDescriptions= recipesArray.Comments.map(comment => {
       return comment.description
     });
+    const commentIds= recipesArray.Comments.map(comment => {
+      return comment.id
+    });
+    const commentArray= recipesArray.Comments.map(comment => {
+      return comment
+    })
+    const testComment= commentArray.map(comment => {
+      return comment.id
+    })
+    console.log(testComment);
 
 
     // const mappedComments =Comments.map(({id, Comments[userid], Comments[recipeid],Comments[description]}) =>(
@@ -65,10 +75,10 @@ const SingleRecipe = ({ id, setShowModal}) => {
           <CreateCommentModal id={id} />
         </div>
         <div className='comment-container'>
-          {commentDescriptions.map(comment => (
-            <div className='comment-container-single' key={comment}>
+          {commentArray.map(({id, userid, recipeid, description}) => (
+            <div className='comment-container-single' key={id}>
             <ul>
-            <li>{comment}</li>
+            <li>{description}</li>
             <li><EditCommentModal id={id}/></li>
             </ul>
             </div>

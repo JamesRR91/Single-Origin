@@ -32,4 +32,23 @@ router.post(
         return res.json({newComment});
     }));
 
+router.put(
+    '/:id', asyncHandler(async(req, res) => {
+    const {
+        userid,
+        recipeid,
+        description
+    }=req.body;
+
+    const commentId=req.params.id;
+    let comment = await Comment.findByPk(commentId)
+    const updatedComment = await comment.update({
+        userid,
+        recipeid,
+        description
+    })
+
+    res.json(updatedComment)
+    }))
+
     module.exports = router;

@@ -3,7 +3,7 @@ import { Modal } from '../../context/Modal';
 import EditComment from './EditComment';
 
 
-function EditCommentModal() {
+function EditCommentModal({id}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
