@@ -4,6 +4,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import EditRecipeModal from '../EditRecipeModal';
 import DeleteRecipeModal from '../DeleteRecipeModal';
 import CreateCommentModal from '../CreateCommentModal';
+import EditCommentModal from '../EditCommentModal';
 
 const SingleRecipe = ({ id, setShowModal}) => {
     const sessionUser = useSelector((state) =>state.session.user.id);
@@ -68,8 +69,8 @@ const SingleRecipe = ({ id, setShowModal}) => {
             <div className='comment-container-single' key={comment}>
             <ul>
             <li>{comment}</li>
+            <li><EditCommentModal id={id}/></li>
             </ul>
-
             </div>
           ))}
         </div>

@@ -14,7 +14,7 @@ function EditCommentModal() {
       </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditComment setShowModal={setShowModal}/>
+          <EditComment id={id} setShowModal={setShowModal}/>
         </Modal>
       )}
     </>
