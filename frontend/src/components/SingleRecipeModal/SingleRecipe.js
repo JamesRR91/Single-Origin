@@ -8,7 +8,7 @@ import EditCommentModal from '../EditCommentModal';
 
 const SingleRecipe = ({ id, setShowModal}) => {
     const sessionUser = useSelector((state) =>state.session.user.id);
-    const recipes = useSelector((state) => state.recipe[id])
+    const recipes = useSelector((state) => state.recipe?.[id])
     const dispatch = useDispatch();
     const [title, setTitle]= useState('');
     const [brewtype, setBrewType] = useState('');
@@ -20,19 +20,10 @@ const SingleRecipe = ({ id, setShowModal}) => {
     const [description, setDescription] = useState('');
 
     const recipesArray=Object.assign([], recipes);
-    const commentDescriptions= recipesArray.Comments.map(comment => {
-      return comment.description
-    });
-    const commentIds= recipesArray.Comments.map(comment => {
-      return comment.id
-    });
-    const commentArray= recipesArray.Comments.map(comment => {
-      return comment
-    })
-    const testComment= commentArray.map(comment => {
-      return comment.id
-    })
-    console.log(testComment);
+    const commentArray= recipesArray?.Comments
+    // console.log('RECIPES', recipes)
+    console.log('COMMENTARRAY', commentArray[0].recipeid);
+    // console.log('RECIPEARRAY', recipesArray)
 
 
     // const mappedComments =Comments.map(({id, Comments[userid], Comments[recipeid],Comments[description]}) =>(
@@ -79,7 +70,7 @@ const SingleRecipe = ({ id, setShowModal}) => {
             <div className='comment-container-single' key={id}>
             <ul>
             <li>{description}</li>
-            <li><EditCommentModal id={id}/></li>
+            <li><EditCommentModal id={id} recipeid={recipeid} userid={userid}/></li>
             </ul>
             </div>
           ))}

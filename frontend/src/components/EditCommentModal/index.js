@@ -3,7 +3,7 @@ import { Modal } from '../../context/Modal';
 import EditComment from './EditComment';
 
 
-function EditCommentModal({id}) {
+function EditCommentModal({id, userid, recipeid}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -14,7 +14,7 @@ function EditCommentModal({id}) {
       </div>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <EditComment id={id} setShowModal={setShowModal}/>
+          <EditComment id={id} userid={userid} recipeid={recipeid} setShowModal={setShowModal}/>
         </Modal>
       )}
     </>
