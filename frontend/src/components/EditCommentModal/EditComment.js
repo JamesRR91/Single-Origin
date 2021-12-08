@@ -18,17 +18,17 @@ const EditComment = ({ id, userid, recipeid, description, setShowModal }) => {
   console.log("COMMENTID", id);
   console.log('USERID', userid);
   console.log('RECIPEID', recipeid);
+  console.log('DESCRIPTION', comment.Comments);
   // console.log("ARRAY", commentDescriptions);
   // console.log('COMMENTS',commentArray);
   useEffect(() => {
-    if (comment) {
-      setReview(comment.description);
+    if (comment.Comments[id]) {
+      setReview(comment.description[id]);
     }
   }, [dispatch, comment]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
-      ...comment,
       id,
       userid: sessionUser,
       recipeid,
