@@ -5,6 +5,7 @@ import EditRecipeModal from '../EditRecipeModal';
 import DeleteRecipeModal from '../DeleteRecipeModal';
 import CreateCommentModal from '../CreateCommentModal';
 import EditCommentModal from '../EditCommentModal';
+import DeleteCommentModal from '../DeleteCommentModal';
 
 const SingleRecipe = ({ id, setShowModal}) => {
     const sessionUser = useSelector((state) =>state.session.user.id);
@@ -71,6 +72,7 @@ const SingleRecipe = ({ id, setShowModal}) => {
             <ul>
             <li>{description}</li>
             <li><EditCommentModal id={id} recipeid={recipeid} userid={userid}/></li>
+            <li><DeleteCommentModal id={id} recipeid={recipeid} userid={userid}/></li>
             </ul>
             </div>
           ))}

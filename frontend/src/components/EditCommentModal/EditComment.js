@@ -2,30 +2,19 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { modifyComment } from "../../store/comments";
+import { useHistory } from "react-router-dom";
 
 const EditComment = ({ id, userid, recipeid, description, setShowModal }) => {
   const dispatch = useDispatch();
+  const history=useHistory();
   const sessionUser = useSelector((state) => state.session.user.id);
   const comment = useSelector((state) => state?.recipe?.[recipeid]);
   const [review, setReview] = useState("");
-  // const commentDescriptions= recipesArray.Comments.map(comment => {
-  //   return comment.description
-  // });
-  // const commentArray=comment?.Comments.map(comment => {
-  //     return comment
-  // });
-  // const specificComment=comment.find(comm => comm.id===id);
-  console.log("COMMENTID", id);
-  console.log('USERID', userid);
-  console.log('RECIPEID', recipeid);
-  console.log('DESCRIPTION', comment.Comments);
-  // console.log("ARRAY", commentDescriptions);
-  // console.log('COMMENTS',commentArray);
-  useEffect(() => {
+  useEffect((id) => {
     if (comment.Comments[id]) {
       setReview(comment.description[id]);
     }
-  }, [dispatch, comment]);
+  }, [dispatch, comment.Comments[id]]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
@@ -38,18 +27,18 @@ const EditComment = ({ id, userid, recipeid, description, setShowModal }) => {
       const data = await res.json();
     });
     setShowModal(false);
-    console.log("PAYLOAD", payload);
   };
 
   return (
-    <section className="edit-comment-container">
+    <section className="modal-container">
       <form onSubmit={handleSubmit} className="modal-form">
-        <label>Comment</label>
+        <label>Edit Your Comment</label>
         <input
-          type="text"
+          type="textarea"
           onChange={(e) => setReview(e.target.value)}
           value={review}
           placeholder="Please be kind"
+          required
         />
         <button className="modal-button" type="submit">
           Edit Comment

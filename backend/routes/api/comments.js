@@ -50,5 +50,10 @@ router.put(
 
     res.json(updatedComment)
     }))
-
+router.delete('/:id', asyncHandler(async (req, res) => {
+        const commentId=req.params.id;
+        let comment=await Comment.findByPk(commentId);
+        await comment.destroy()
+        res.json({message:'Comment Deleted'})
+    }))
     module.exports = router;

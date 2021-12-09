@@ -21,6 +21,11 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'cascade',
         hooks:true
       })
+      Recipe.hasMany(models.Like, {
+        foreignKey: 'recipeid',
+        onDelete: 'cascade',
+        hooks:true
+      })
     }
   return Recipe;
 };
