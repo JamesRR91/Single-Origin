@@ -131,7 +131,7 @@ const recipeReducer = (state={}, action) => {
             return newState;
         case UPDATE_COMMENT:
             newState={...state};
-            newState[action.payload.id]=action.payload
+            newState[action.payload.recipeid].Comments.push(action.payload)
             return newState;
         case REMOVE_ONE_COMMENT:
             newState={...state};
