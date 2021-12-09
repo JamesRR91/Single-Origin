@@ -6,11 +6,11 @@ module.exports = (sequelize, DataTypes) => {
     liked: DataTypes.BOOLEAN
   }, {});
 
-    Comment.associate= function(models) {
-      Comment.belongsTo(models.Recipe, {
+    Like.associate= function(models) {
+      Like.belongsTo(models.Recipe, {
         foreignKey:'recipeid'
       });
-      Comment.belongsTo(models.User, {
+      Like.belongsTo(models.User, {
         foreignKey:'userid'
       });
     }
