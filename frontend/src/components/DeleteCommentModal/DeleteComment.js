@@ -9,8 +9,9 @@ const DeleteComment = ({ id, userid, recipeid, description, setShowModal }) => {
   const history=useHistory();
   const sessionUser = useSelector((state) => state.session.user.id);
   const comment = useSelector((state) => state?.recipe?.[recipeid]);
+  console.log(comment);
   const [review, setReview] = useState("");
-  
+
   const deleteCheckPoint= async() => {
     dispatch(deleteComment(id))
     await history.push('/recipe')

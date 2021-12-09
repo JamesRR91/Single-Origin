@@ -6,6 +6,7 @@ const REMOVE_ONE_RECIPE ='recipe/removeOneRecipe';
 const ADD_ONE_COMMENT ='comments/addOneComment';
 const UPDATE_COMMENT ='comments/updateComment';
 const REMOVE_ONE_COMMENT='comments/removeOneComment'
+// const GET_LIKES='recipe/getLikes';
 
 const getRecipes = payload => {
     return {
@@ -34,6 +35,13 @@ const removeOneRecipe = id => {
         payload: id,
     };
 };
+
+// const getLikes = payload => {
+//     return {
+//         type: GET_LIKES,
+//         payload,
+//     };
+// };
 
 export const getAllRecipes = () => async dispatch => {
     const response = await fetch('/api/recipe');
@@ -89,6 +97,14 @@ export const deleteRecipe = id => async dispatch => {
     }
 };
 
+// export const getAllLikes = () => async dispatch => {
+//     const response = await fetch('/api/like');
+//     if(response.ok) {
+//         const data = await response.json();
+//         dispatch(getLikes(data.likes));
+//     }
+// }
+
 const recipeReducer = (state={}, action) => {
     let newState = {};
     switch (action.type){
@@ -115,7 +131,7 @@ const recipeReducer = (state={}, action) => {
             return newState;
         case UPDATE_COMMENT:
             newState={...state};
-            newState[action.payload.recipeid].Comments=action.payload;
+            newState[action.payload.id]=action.payload
             return newState;
         case REMOVE_ONE_COMMENT:
             newState={...state};

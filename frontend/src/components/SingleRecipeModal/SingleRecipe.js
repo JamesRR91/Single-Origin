@@ -23,7 +23,6 @@ const SingleRecipe = ({ id, setShowModal}) => {
     const recipesArray=Object.assign([], recipes);
     const commentArray= recipesArray?.Comments
     // console.log('RECIPES', recipes)
-    console.log('COMMENTARRAY', commentArray[0].recipeid);
     // console.log('RECIPEARRAY', recipesArray)
 
 
