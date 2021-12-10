@@ -59,7 +59,6 @@ router.delete('/:id', asyncHandler(async (req, res) => {
         const commentId=req.params.id;
         let comment=await Comment.findByPk(commentId);
         await comment.destroy()
-        console.log('THE BACKEND', comment);
         return res.json(comment)
     }))
     module.exports = router;

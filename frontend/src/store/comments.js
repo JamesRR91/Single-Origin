@@ -25,10 +25,10 @@ const changeComment = payload => {
     };
 };
 
-const removeOneComment = payload => {
+const removeOneComment = comment => {
     return {
         type: REMOVE_ONE_COMMENT,
-        payload
+        comment
     };
 };
 
@@ -63,12 +63,15 @@ export const modifyComment = (comment) => async dispatch => {
     }
 }
 export const deleteComment = id => async dispatch => {
-    const response = await csrfFetch(`/api/comments/${id}`,{
-        method: 'DELETE',
+    const response = await csrfFetch(`/api/comments/${id}`, {
+        method:'DELETE',
+
     });
+    const removedComment= await response.json();
+    console.log('REMOVED COMMENT', removedComment);
 
     if(response.ok) {
-        dispatch(removeOneComment(id));
+        dispatch(removeOneComment(removedComment));
     }
 };
 
@@ -87,7 +90,6 @@ const commentReducer = (state={}, action) => {
             return newState;
         case REMOVE_ONE_COMMENT:
             newState={...state};
-            console.log('EXTERMINATE',newState[action.payload.id])
             delete newState[action.payload];
             return newState;
         default:
