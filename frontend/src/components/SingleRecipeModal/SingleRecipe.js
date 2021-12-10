@@ -22,7 +22,9 @@ const SingleRecipe = ({ id, setShowModal}) => {
     const [description, setDescription] = useState('');
 
     const recipesArray=Object.assign([], recipes);
+    console.log('COMPARE1', recipesArray);
     const commentArray= recipesArray?.Comments
+    console.log('COMPARE2', commentArray);
     // console.log('RECIPES', recipes)
     // console.log('RECIPEARRAY', recipesArray)
 

@@ -8,7 +8,11 @@ const DeleteComment = ({ id, userid, recipeid, description, setShowModal }) => {
   const dispatch = useDispatch();
   const history=useHistory();
   const sessionUser = useSelector((state) => state.session.user.id);
-  const comment = useSelector((state) => state?.recipe?.[recipeid]);
+  const comment = useSelector((state) => state?.recipe?.[recipeid].Comments);
+  const findComment= comment.find(commentid => {
+      commentid===id
+  });
+  console.log('DELETE PAYLOAD', findComment)
   const [review, setReview] = useState("");
 
   const deleteCheckPoint= async() => {

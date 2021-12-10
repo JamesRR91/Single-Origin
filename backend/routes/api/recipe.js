@@ -101,6 +101,7 @@ router.delete('/:id', asyncHandler(async (req, res) => {
     const recipeId=req.params.id;
     let recipe=await Recipe.findByPk(recipeId);
     await recipe.destroy()
+    console.log('RECIPE BACKEND', recipe)
     res.json({message:'Recipe Deleted'})
 }))
 

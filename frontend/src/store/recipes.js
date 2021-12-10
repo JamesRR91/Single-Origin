@@ -138,7 +138,7 @@ const recipeReducer = (state={}, action) => {
             return newState;
         case REMOVE_ONE_COMMENT:
             newState={...state};
-            newState[action.payload.id].Comments.slice(findBy, 1);
+            newState[action.payload.id].Comments.splice(findBy, 1);
             return newState;
         default:
             return state;

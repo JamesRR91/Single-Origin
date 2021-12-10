@@ -4,7 +4,7 @@ const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const recipeRouter = require('./recipe.js');
 const commentsRouter = require('./comments.js');
-const likesRouter = require('./likes.js');
+const likesRouter = require('./like.js');
 
 router.use('/session', sessionRouter);
 
