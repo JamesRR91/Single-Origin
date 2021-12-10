@@ -130,12 +130,13 @@ const recipeReducer = (state={}, action) => {
             newState[action.payload.recipeid].Comments.push(action.payload);
             return newState;
         case UPDATE_COMMENT:
-            newState={...state};
-            newState[action.payload.recipeid].Comments.push(action.payload)
+            newState={...state}
+            const findBy=newState[action.payload.recipeid].Comments.findIndex(comment => comment.id === action.payload.id);
+            newState[action.payload.recipeid].Comments[findBy]=action.payload;
             return newState;
         case REMOVE_ONE_COMMENT:
             newState={...state};
-            delete newState[action.payload];
+            delete newState[action.payload.recipeid];
             return newState;
         default:
             return state;

@@ -1,6 +1,7 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
+import { getAllComments } from '../../store/comments';
 import EditRecipeModal from '../EditRecipeModal';
 import DeleteRecipeModal from '../DeleteRecipeModal';
 import CreateCommentModal from '../CreateCommentModal';
@@ -45,6 +46,9 @@ const SingleRecipe = ({ id, setShowModal}) => {
 
   }, [dispatch,recipes]);
 
+  useEffect(() => {
+    dispatch(getAllComments(id));
+  },[dispatch]);
     return (
       <div className="card-grid-single">
       <div className='recipe-detail-single'>

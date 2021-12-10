@@ -9,6 +9,7 @@ const LikeToggle = () => {
   const sessionUser=useSelector((state) => state.session.user.id);
   const likeState=useSelector((state) => state.like.liked)
   const [likes, setLikes] = useState(false);
+  console.log(sessionUser);
 
   const toggleLikes = () => setLikes( likes ? false : true );
 
