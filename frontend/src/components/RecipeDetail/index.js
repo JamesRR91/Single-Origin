@@ -1,12 +1,18 @@
-import { useSelector} from 'react-redux';
+import { useSelector, useDispatch} from 'react-redux';
+import { useEffect } from 'react';
 import EditRecipeModal from '../EditRecipeModal';
 import DeleteRecipeModal from '../DeleteRecipeModal';
 import SingleRecipeModal from '../SingleRecipeModal';
+import { getAllLikes } from '../../store/like';
 import LikeToggle from '../LikeToggle';
 import './RecipeDetail.css';
 
 const RecipeDetail = ({ id,title, brewtype,roasttype,grindlevel,coffeedose,waterdose,brewtime,description }) => {
   const sessionUser = useSelector(state => state.session.user)
+  const dispatch=useDispatch();
+  useEffect(() => {
+    dispatch(getAllLikes());
+}, [dispatch]);
   let sessionLinks;
   if(sessionUser) {
     sessionLinks= (

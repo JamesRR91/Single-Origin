@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllRecipes } from '../../store/recipes';
+
 import RecipeDetail from '../RecipeDetail';
 import CreateRecipeModal from '../CreateRecipeModal';
 
@@ -9,9 +10,11 @@ const RecipeList = () => {
     const dispatch = useDispatch();
 
     const recipes = useSelector(state => Object.values(state.recipe));
+    const likes = useSelector(state => Object.values(state.like))
     useEffect(() => {
         dispatch(getAllRecipes());
     }, [dispatch]);
+    
     return (
         <div className="recipe-list-container">
         <div className="create-button">

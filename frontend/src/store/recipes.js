@@ -1,4 +1,5 @@
 import {csrfFetch} from './csrf'
+import {GET_LIKES, ADD_LIKES, REMOVE_LIKES} from './like';
 const GET_RECIPES ='recipe/getRecipes';
 const ADD_ONE_RECIPE ='recipe/addOneRecipe';
 const UPDATE_RECIPE ='recipe/updateRecipes';
@@ -120,6 +121,7 @@ const recipeReducer = (state={}, action) => {
         case UPDATE_RECIPE:
             newState={...state}
             newState[action.payload.id]=action.payload
+            console.log('KEY DAMMMIT',newState[action.payload.id].Comments)
             return newState;
         case REMOVE_ONE_RECIPE:
             newState={...state};
@@ -136,7 +138,7 @@ const recipeReducer = (state={}, action) => {
             return newState;
         case REMOVE_ONE_COMMENT:
             newState={...state};
-            delete newState[action.payload.recipeid];
+            newState[action.payload.id].Comments.slice(findBy, 1);
             return newState;
         default:
             return state;

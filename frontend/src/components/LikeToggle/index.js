@@ -1,20 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux';
-import { makeLikes } from "../../store/like";
+import { makeLikes, deleteLikes } from "../../store/like";
 
 const LikeToggle = () => {
   const dispatch=useDispatch();
 //   const history=useHistory();
   const sessionUser=useSelector((state) => state.session.user.id);
   const likeState=useSelector((state) => state.like.liked)
-  const [likes, setLikes] = useState(false);
+  const [isLiked, setLikes] = useState(false);
   console.log(sessionUser);
+    let likesCounter=0;
+  const handleLike = async () => {
+      console.log('WORK LIKE', isLiked);
+      const payload = {
+          userid:sessionUser.id,
+        //   recipeid,
+        //   liked
+      };
+      if (!isLiked) {
+          setLikes(true);
+          dispatch(makeLikes(payload)).catch(async (res) => {
+              const data=await res.json;
+          })
+          likesCounter+=1;
+      } else {
+          setLikes(false);
+          dispatch(deleteLikes(payload.id)).catch(async (res) => {
+              const data=await res.json();
+          })
+          likesCounter-=1;
+      }
+      console.log('Count', likesCounter)
+  }
 
-  const toggleLikes = () => setLikes( likes ? false : true );
-
-  const { userid, recipeid } = useParams();
-  const history = useHistory();
+//   const { userid, recipeid } = useParams();
+//   const history = useHistory();
 //   useEffect(() => {
 //     (async () => {
 
@@ -27,7 +48,8 @@ const LikeToggle = () => {
 
   return (
       <div className='like-container'>
-      <button onClick={toggleLikes}><i class="fas fa-heart"></i></button>
+      <button onClick={handleLike}><i class="fas fa-heart"></i></button>
+      <p>{likesCounter}</p>
       </div>
   );
 };

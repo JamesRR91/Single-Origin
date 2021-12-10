@@ -1,7 +1,7 @@
 import {csrfFetch} from './csrf'
 const GET_COMMENTS ='comments/getComments';
 const ADD_ONE_COMMENT ='comments/addOneComment';
-const UPDATE_COMMENT ='comments/updateComments';
+const UPDATE_COMMENT ='comments/updateComment';
 const REMOVE_ONE_COMMENT ='comments/removeOneComment';
 
 const getComments = payload => {
@@ -87,6 +87,7 @@ const commentReducer = (state={}, action) => {
             return newState;
         case REMOVE_ONE_COMMENT:
             newState={...state};
+            console.log('EXTERMINATE',newState[action.payload.id])
             delete newState[action.payload];
             return newState;
         default:
