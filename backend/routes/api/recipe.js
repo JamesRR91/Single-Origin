@@ -68,7 +68,6 @@ router.get(
 router.put('/:id', validateRecipe, asyncHandler(async(req, res) => {
     const {
         userid,
-        grinderid,
         title,
         brewtype,
         roasttype,
@@ -83,7 +82,6 @@ router.put('/:id', validateRecipe, asyncHandler(async(req, res) => {
     let recipe = await Recipe.findByPk(recipeId)
     const updatedRecipe = await recipe.update({
         userid,
-        grinderid,
         title,
         brewtype,
         roasttype,

@@ -6,6 +6,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SplashPage from "./components/SplashPage";
 import RecipeList from "./components/RecipeList";
+import GrinderList from "./components/GrinderList";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route exact path="/recipe">
             <RecipeList />
+          </Route>
+          <Route path="/grinder">
+            <GrinderList />
           </Route>
         </Switch>
       )}

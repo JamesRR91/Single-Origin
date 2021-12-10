@@ -110,8 +110,8 @@ const recipeReducer = (state={}, action) => {
     let newState = {};
     switch (action.type){
         case GET_RECIPES:
-        action.payload.forEach(recipe =>(newState[recipe.id]= recipe));
-        return newState;
+            action.payload.forEach(recipe =>(newState[recipe.id]= recipe));
+            return newState;
         // case GET_ONE_RECIPE:
         //     const newState={...state};
         //     newState[action.payload.id]= action.payload;
@@ -121,7 +121,6 @@ const recipeReducer = (state={}, action) => {
         case UPDATE_RECIPE:
             newState={...state}
             newState[action.payload.id]=action.payload
-            console.log('KEY DAMMMIT',newState[action.payload.id].Comments)
             return newState;
         case REMOVE_ONE_RECIPE:
             newState={...state};
@@ -138,7 +137,8 @@ const recipeReducer = (state={}, action) => {
             return newState;
         case REMOVE_ONE_COMMENT:
             newState={...state};
-            newState[action.payload.id].Comments.splice(findBy, 1);
+            const deleteThis=newState[action.comment.recipeid].Comments.findIndex(comment => comment.id === action.comment.id);
+            newState[action.comment.recipeid].Comments.splice(deleteThis, 1);
             return newState;
         default:
             return state;

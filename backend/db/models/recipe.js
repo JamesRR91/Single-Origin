@@ -2,7 +2,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Recipe=sequelize.define('Recipe', {
     userid: DataTypes.INTEGER,
-    grinderid: DataTypes.INTEGER,
     title: DataTypes.STRING,
     brewtype: DataTypes.STRING,
     roasttype: DataTypes.STRING,
@@ -13,9 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     description:DataTypes.TEXT
   },{})
     Recipe.associate = function(models) {
-      Recipe.hasOne(models.Grinder, {
-        foreignKey: 'grinderid'
-      })
       Recipe.hasMany(models.Comment, {
         foreignKey: 'recipeid',
         onDelete: 'cascade',

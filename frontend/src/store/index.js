@@ -4,12 +4,16 @@ import sessionReducer from "./session";
 import recipeReducer from "./recipes";
 import commentReducer from "./comments";
 import likeReducer from "./like";
+import grinderReducer from "./grinder";
+import reviewReducer from "./review";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   recipe: recipeReducer,
   comment: commentReducer,
-  like: likeReducer
+  like: likeReducer,
+  grinder: grinderReducer,
+  review: reviewReducer
 });
 
 let enhancer;

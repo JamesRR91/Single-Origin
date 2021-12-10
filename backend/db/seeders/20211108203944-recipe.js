@@ -5,7 +5,6 @@ module.exports = {
     return queryInterface.bulkInsert('Recipes', [
       {
         userid: 1,
-        grinderid: 1,
         title: 'Large Batch Chemex',
         brewtype: 'Chemex',
         roasttype:'light roast',

@@ -20,7 +20,7 @@ router.use('/like', likesRouter);
 
 router.use('/grinder', grinderRouter);
 
-router.use('review', reviewRouter);
+router.use('/review', reviewRouter);
 
 router.post('/test', (req, res) => {
     res.json({ requestBody: req.body });

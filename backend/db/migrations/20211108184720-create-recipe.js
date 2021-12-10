@@ -13,10 +13,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         references:{model:'Users'}
       },
-      grinderid: {
-        type: Sequelize.INTEGER,
-        references:{model:'Grinders'}
-      },
       title: {
         allowNull: false,
         type: Sequelize.STRING,

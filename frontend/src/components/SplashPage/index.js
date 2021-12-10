@@ -11,6 +11,10 @@ function SplashPage(){
              Find New Recipes
              </button>
              </Link>
+             <Link to='/grinder'><button className="recipe-button">
+             Browse Through Grinder Reviews
+             </button>
+             </Link>
              </div>
             </div>
     );
