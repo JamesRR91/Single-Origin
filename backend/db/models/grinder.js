@@ -9,6 +9,11 @@ module.exports = (sequelize, DataTypes) => {
       Grinder.belongsTo(models.Recipe, {
         foreignKey:'grinderid'
       })
+      Grinder.hasMany(models.Review, {
+        foreignKey: 'grinderid',
+        onDelete: 'cascade',
+        hooks:true
+      })
     }
   return Grinder;
 };

@@ -25,10 +25,10 @@ const changeComment = payload => {
     };
 };
 
-const removeOneComment = id => {
+const removeOneComment = payload => {
     return {
         type: REMOVE_ONE_COMMENT,
-        id
+        payload
     };
 };
 

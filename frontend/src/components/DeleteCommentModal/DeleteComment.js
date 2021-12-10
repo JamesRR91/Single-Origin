@@ -10,13 +10,13 @@ const DeleteComment = ({ id, userid, recipeid, description, setShowModal }) => {
   const sessionUser = useSelector((state) => state.session.user.id);
   const comment = useSelector((state) => state?.recipe?.[recipeid].Comments);
   const findComment= comment.find(commentid => {
-      commentid===id
+      return commentid===id
   });
-  console.log('DELETE PAYLOAD', findComment)
+  console.log('DELETE PAYLOAD', comment)
   const [review, setReview] = useState("");
 
   const deleteCheckPoint= async() => {
-    dispatch(deleteComment(id))
+    dispatch(deleteComment(id, recipeid))
     await history.push('/recipe')
     setShowModal(false);
 }

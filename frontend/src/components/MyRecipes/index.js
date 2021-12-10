@@ -22,10 +22,11 @@ export default function MyRecipe() {
     const commentsArray= Object.values(comments);
 
     return (
+        <div className='my-recipe-container'>
         <h3>My Recipes</h3>
         <ul>
         {recipeArray?.map((recipe => {
-            <div className='recipe-profile-individual'>
+            <div className='my-recipe-individual'>
             <li>
             title={recipe.title}
             </li>
@@ -35,5 +36,7 @@ export default function MyRecipe() {
             </div>
         }))}
         </ul>
+
+        </div>
     )
 }

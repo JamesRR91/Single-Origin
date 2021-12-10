@@ -62,6 +62,7 @@ const likeReducer = (state={}, action) => {
             return newState;
         case ADD_LIKES:
             newState={...state,[action.payload.id]:action.payload};
+            console.log('LIKES', action.payload);
             return newState;
         case REMOVE_LIKES:
             newState={...state};
