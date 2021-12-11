@@ -3,6 +3,8 @@ import {useState, useEffect} from 'react';
 import { useDispatch, useSelector} from 'react-redux';
 import { getAllReviews } from '../../store/review';
 import CreateReviewModal from '../CreateReviewModal';
+import EditReviewModal from '../EditReviewModal';
+import DeleteReviewModal from '../DeleteReviewModal';
 
 
 const Review = ({id, setShowModal}) => {
@@ -49,6 +51,8 @@ const Review = ({id, setShowModal}) => {
                 <div className='comment-container-single' key={id}>
                 <ul>
                 <li>{review}</li>
+                <li><EditReviewModal id={id} userid={userid} grinderid={grinderid}/></li>
+                <li><DeleteReviewModal id={id} userid={userid} grinderid={grinderid}/></li>
                 </ul>
                 </div>
             ))}

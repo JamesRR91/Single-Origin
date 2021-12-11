@@ -53,6 +53,16 @@ const grinderReducer = (state={}, action) => {
             newState={...state}
             newState[action.payload.grinderid].Reviews.push(action.payload);
             return newState;
+        case UPDATE_REVIEW:
+            newState={...state}
+            const findBy=newState[action.payload.grinderid].Reviews.findIndex(review => review.id === action.payload.id);
+            newState[action.payload.grinderid].Reviews[findBy]=action.payload;
+            return newState;
+        case REMOVE_ONE_REVIEW:
+            newState={...state};
+            const deleteThis=newState[action.data.grinderid].Reviews.findIndex(data => data.id === action.data.id);
+            newState[action.data.grinderid].Reviews.splice(deleteThis, 1);
+            return newState;
         default:
             return state;
     }

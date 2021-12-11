@@ -28,7 +28,7 @@ router.get(
             '/:id', asyncHandler(async(req, res) => {
             const {
                 userid,
-                recipeid,
+                grinderid,
                 review
             }=req.body;
 
@@ -36,18 +36,24 @@ router.get(
             let theReview = await Review.findByPk(reviewId)
             const updatedReview = await theReview.update({
                 userid,
-                recipeid,
+                grinderid,
                 review
             })
 
             res.json(updatedReview)
             }))
 
-            router.delete('/:id', asyncHandler(async (req, res) => {
+        router.delete('/:id', asyncHandler(async (req, res) => {
+                const {
+                    userid,
+                    grinderid,
+                    review
+                }=req.body;
                 const reviewId=req.params.id;
-                let review=await Recipe.findByPk(reviewId);
-                await review.destroy()
-                res.json({message:'Review Deleted'})
+                let data=await Review.findByPk(reviewId);
+                console.log('THE DATA', data);
+                await data.destroy()
+                return res.json(data);
             }))
 
             module.exports= router;

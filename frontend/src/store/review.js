@@ -25,10 +25,10 @@ const changeReview = payload => {
     };
 };
 
-const removeOneReview = review => {
+const removeOneReview = data => {
     return {
         type:REMOVE_ONE_REVIEW,
-        review
+        data
     };
 };
 
@@ -69,6 +69,7 @@ export const deleteReview = id => async dispatch => {
     });
 
 const removedReview=await response.json();
+console.log('REMOVED REVIEW', removedReview);
 if(response.ok) {
     dispatch(removeOneReview(removedReview));
 }
