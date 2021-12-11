@@ -2,6 +2,9 @@ import { csrfFetch } from "./csrf";
 
 const GET_GRINDERS ='grinder/getGrinders';
 const GET_ONE_GRINDER='grinder/getOneGrinder';
+const ADD_ONE_REVIEW='review/addOneReview';
+const UPDATE_REVIEW='review/updateReview';
+const REMOVE_ONE_REVIEW='review/removeOneReview';
 
 const getGrinders = payload => {
     return {
@@ -46,6 +49,10 @@ const grinderReducer = (state={}, action) => {
             newState={...state}
             newState[action.grinder.id]=action.grinder
             return newState
+        case ADD_ONE_REVIEW:
+            newState={...state}
+            newState[action.payload.grinderid].Reviews.push(action.payload);
+            return newState;
         default:
             return state;
     }

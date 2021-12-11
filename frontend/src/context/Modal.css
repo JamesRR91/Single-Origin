@@ -123,3 +123,9 @@
 
     text-align: left;
   }
+
+  .img {
+    align-items: center;
+    height: 400px;
+    width: 300px;
+  }
