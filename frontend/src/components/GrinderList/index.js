@@ -18,12 +18,13 @@ const GrinderList = () => {
     return (
         <div className="recipe-list-container">
         <div className='recipe-list-single'>
-                {grinders.length>0 ? grinders.map(({id, name, price, typeid}) => (
+                {grinders.length>0 ? grinders.map(({id, product, price, typeid, imgurl}) => (
                     <GrinderDetail id={id}
                         key={id}
-                        name={name}
+                        product={product}
                         price={price}
                         typeid={typeid}
+                        imgurl={imgurl}
                     />
                 )):null}
             </div>

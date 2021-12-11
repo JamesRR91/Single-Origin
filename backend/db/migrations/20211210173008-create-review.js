@@ -20,7 +20,7 @@ module.exports = {
       },
       review: {
         allowNull:false,
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT(1000)
       },
       createdAt: {
         allowNull: false,

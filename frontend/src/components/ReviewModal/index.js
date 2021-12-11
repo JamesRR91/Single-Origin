@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import Review from './Review';
 
-function ReviewModal({id, name, price, typeid}) {
+function ReviewModal({id, product, price, typeid, imgurl}) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -10,7 +10,7 @@ function ReviewModal({id, name, price, typeid}) {
           <button className='login-button' onClick={() => setShowModal(true)}>See The Reviews</button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-              <Review id={id} name={name} price={price} typeid={typeid} setShowModal={setShowModal}/>
+              <Review id={id} product={product} price={price} typeid={typeid} imgurl={imgurl} setShowModal={setShowModal}/>
             </Modal>
           )}
         </div>
