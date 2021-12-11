@@ -1,8 +1,8 @@
+import './GrinderList.css';
 import { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getAllGrinders } from "../../store/grinder";
-
 import GrinderDetail from '../GrinderDetail';
 
 const GrinderList = () => {
@@ -16,8 +16,8 @@ const GrinderList = () => {
     }, [dispatch]);
 
     return (
-        <div className="recipe-list-container">
-        <div className='recipe-list-single'>
+        <div className="grinder-list-container">
+        <div className='grinder-list-single'>
                 {grinders.length>0 ? grinders.map(({id, product, price, typeid, imgurl}) => (
                     <GrinderDetail id={id}
                         key={id}
