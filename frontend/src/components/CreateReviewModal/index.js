@@ -7,7 +7,7 @@ function CreateReviewModal({id}) {
 
     return (
         <div>
-          <button className='login-button' onClick={() => setShowModal(true)}>Review This Grinder</button>
+          <button className='modal-button-review' onClick={() => setShowModal(true)}>Review This Grinder</button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <CreateReview id={id} setShowModal={setShowModal}/>

@@ -54,6 +54,7 @@ const CreateRecipe = ({setShowModal}) => {
 
     return (
         <section className="modal-container">
+        <h3 className='review-title'>Create Your Recipe</h3>
         <form onSubmit={handleSubmit} className='modal-form'>
         {message}
         <ul className='modal-errors-container'>

@@ -15,9 +15,11 @@ function DeleteRecipe({id, setShowModal}) {
 
 
 return (
-    <div className="modal-form">
-        <h3 className="modal-content">Are you sure?</h3>
+    <div className="review-detail-single">
+        <h3 className="modal-content-delete">Are you sure?</h3>
+        <div className='button-row-delete'>
         <button className="modal-button" onClick={deleteCheckPoint}>Yes, Delete My Recipe</button>
+        </div>
     </div>
 )
 }

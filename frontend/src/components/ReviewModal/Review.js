@@ -34,16 +34,16 @@ const Review = ({id, setShowModal}) => {
 
     return (
         <div className='card-grid-single'>
-        <div className='recipe-detail-single'>
-        <h3 className='recipe-title-single'>{product}</h3>
+        <div className='review-detail-single'>
+        <h3 className='review-title'>{product}</h3>
         <img src={imgurl} className='img-modal'/>
         <div className='card-body-single'>
-        <ul className='recipe-detail-list-container'>
-        <li className='recipe-detail-list'>Cost: ${price}</li>
-        <li className='recipe-detail-list'>Best For: {typeid}</li>
+        <ul className='review-detail-list-container'>
+        <li className='review-detail-list'>Cost: ${price}</li>
+        <li className='review-detail-list'>Best For: {typeid}</li>
         </ul>
         </div>
-        <div className='button-row'>
+        <div className='button-row-review'>
         <CreateReviewModal id={id}/>
         </div>
         <div className='comment-container'>

@@ -60,7 +60,8 @@ const EditRecipe = ({id, setShowModal}) => {
 
 
     return (
-        <section className="new-recipe-container">
+        <section className="modal-container">
+        <h3 className='review-title'>Edit Your Recipe</h3>
         <form onSubmit={handleSubmit} className='modal-form'>
         <ul className='modal-errors-container'>
         {errors.map((error, idx) => (

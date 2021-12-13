@@ -51,17 +51,38 @@ const SingleRecipe = ({ id, setShowModal}) => {
   },[dispatch]);
     return (
       <div className="card-grid-single">
-      <div className='recipe-detail-single'>
-      <h3 className='recipe-title-single'>{title}</h3>
+      <div className='review-detail-single'>
+      <h3 className='review-title'>{title}</h3>
         <div className='card-body-single'>
-        <ul className='recipe-detail-list-container'>
-        <li className='recipe-detail-list'>How are you brewing?: {brewtype}</li>
-        <li className='recipe-detail-list'>What type of roast?: {roasttype}</li>
-        <li className='recipe-detail-list'>What type of grind?: {grindlevel}</li>
-        <li className='recipe-detail-list'>How much coffee?: {coffeedose}</li>
-        <li className='recipe-detail-list'>How much water?: {waterdose}</li>
-        <li className='recipe-detail-list'>How long?: {brewtime}</li>
-        <li className="recipe-detail-list">Anything else?: {description}</li>
+        <ul className='review-detail-list-container'>
+        <div className='q-a-container'>
+        <li className='review-detail-list'>How are you brewing?:</li>
+        <li>{brewtype}</li>
+        </div>
+        <div className='q-a-container'>
+        <li className='review-detail-list'>What type of roast?:</li>
+        <li>{roasttype}</li>
+        </div>
+        <div className='q-a-container'>
+        <li className='review-detail-list'>What type of grind?:</li>
+        <li>{grindlevel}</li>
+        </div>
+        <div className='q-a-container'>
+        <li className='review-detail-list'>How much coffee?:</li>
+        <li>{coffeedose}</li>
+        </div>
+        <div className='q-a-container'>
+        <li className='review-detail-list'>How much water?:</li>
+        <li>{waterdose}</li>
+        </div>
+        <div className='q-a-container'>
+        <li className='review-detail-list'>How long?:</li>
+        <li>{brewtime}</li>
+        </div>
+        <div className='q-a-container'>
+        <li className="review-detail-list">Anything else?:</li>
+        <li>{description}</li>
+        </div>
         </ul>
       </div>
         <div className='button-row'>
@@ -73,9 +94,11 @@ const SingleRecipe = ({ id, setShowModal}) => {
           {commentArray.map(({id, userid, recipeid, description}) => (
             <div className='comment-container-single' key={id}>
             <ul>
-            <li>{description}</li>
+            <li className='comments'>{description}</li>
+            <div className='button-row'>
             <li><EditCommentModal id={id} recipeid={recipeid} userid={userid}/></li>
             <li><DeleteCommentModal id={id} recipeid={recipeid} userid={userid}/></li>
+            </div>
             </ul>
             </div>
           ))}

@@ -19,9 +19,11 @@ const GrinderDetail= ({ id, product, price, typeid, imgurl}) => {
 return (
     <div className='wrapper'>
     <div className='card'>
+    <div className='photo-and-title'>
     <img src={imgurl} className='img-grinder'/>
-    <h3 className='grinder-title'>{product}</h3>
+    </div>
     <div className='card-body'>
+    <h3 className='grinder-title'>{product}</h3>
     <ul className='grinder-single-card-container'>
     <li className='grinder-detail-list'>Price: ${price}</li>
     <li className='grinder-detail-list'>Best Used For: {typeid}</li>

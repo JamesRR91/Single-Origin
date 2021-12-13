@@ -3,8 +3,6 @@ import { useEffect } from 'react';
 import EditRecipeModal from '../EditRecipeModal';
 import DeleteRecipeModal from '../DeleteRecipeModal';
 import SingleRecipeModal from '../SingleRecipeModal';
-// import { getAllLikes } from '../../store/like';
-import LikeToggle from '../LikeToggle';
 import './RecipeDetail.css';
 
 const RecipeDetail = ({ id,title, brewtype,roasttype,grindlevel,coffeedose,waterdose,brewtime,description }) => {
@@ -20,7 +18,6 @@ const RecipeDetail = ({ id,title, brewtype,roasttype,grindlevel,coffeedose,water
         <EditRecipeModal id={id}/>
         <DeleteRecipeModal id={id}/>
         <SingleRecipeModal id={id}/>
-        <LikeToggle id={id}/>
       </div>
     )
   }

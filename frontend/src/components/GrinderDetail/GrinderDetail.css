@@ -1,32 +1,78 @@
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin:0;
-    padding:0;
-}
+
 .card {
-    display: grid;
+    display: flex;
     border-radius: 1rem;
-    width: 300px;
-    text-align: center;
-    margin: 80px;
+    width: 600px;
+    height: 450px;
     box-shadow: 0 2px 20px;
-    text-align: center;
-    justify-content: space-between;
     cursor: pointer;
     transition: transform 200ms ease-in;
-    position:relative;
+    overflow:hidden;
 
     }
+
+.card button {
+    width: fit-content;
+}
 
 .wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    margin:0;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex: 1;
+    padding: 2%;
+    flex-grow: 1;
+    flex-basis: 16%;
 
 }
 
+.grinder-title {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 26px;
+    width: fit-content;
+}
+
 .img-grinder {
+    display: flex;
+    justify-content: center;
     width: 300px;
+    height: 450px;
+
+}
+
+.grinder-detail-list {
+    text-align: center;
+    font-weight: bold;
+}
+
+.grinder-single-card-container {
+    display: flex;
+    flex-direction: column;
+    text-align:start;
+    align-items: center;
+    justify-content: space-evenly;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 2px;
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    font-size: 20px;
+}
+
+.login-button {
+    text-align: center;
+}
+
+.button-row {
+    text-align: center;
 }

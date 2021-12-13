@@ -154,4 +154,6 @@ i {
     display: flex;
     justify-content: flex-start;
     text-align: flex-start;
+    font-weight:400;
+    align-items: center;
 }

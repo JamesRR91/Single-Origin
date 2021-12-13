@@ -34,7 +34,9 @@ const CreateReview = ({id, setShowModal}) => {
 
     return (
         <section className='modal-container'>
+        <h3 className='review-title'>Create Your Review</h3>
         <form onSubmit={handleSubmit} className='modal-form'>
+        <div className='q-a-container-create'>
         <label>How long did you use it for?</label>
         <select
         onChange={(e) => setUseTime(e.target.value)}
@@ -47,6 +49,8 @@ const CreateReview = ({id, setShowModal}) => {
         <option value='Less than a year'>6-12 months</option>
         <option value='Over a year'>1+ years</option>
         </select>
+        </div>
+        <div className='q-a-container-create'>
         <label> What did you use it for?</label>
         <select
         onChange={(e) => setUseCase(e.target.value)}
@@ -59,6 +63,8 @@ const CreateReview = ({id, setShowModal}) => {
         <option value='hybrid, mostly espresso'>Primarily espresso</option>
         <option value='hybrid, equal use of both'>Epresso and drip equally</option>
         </select>
+        </div>
+        <div className='q-a-container-create'>
         <label>How did you find the grinder?</label>
         <select
         onChange={(e) => setSale(e.target.value)}
@@ -70,13 +76,8 @@ const CreateReview = ({id, setShowModal}) => {
         <option value='Picked up refurb'>Picked it up refurbished</option>
         <option value='Refurbished myself'>Refurbished myself</option>
         </select>
-        <label>What else can you tell us?</label>
-        <textarea
-        onChange={(e) =>setReview(e.target.value)}
-        value={review}
-        placeholder='Tell us your thoughts'
-        required
-        />
+        </div>
+        <div className='q-a-container-create'>
         <label>Would you reccomend this product?</label>
         <select
         onChange={(e) => setReccomendation(e.target.value)}
@@ -87,6 +88,16 @@ const CreateReview = ({id, setShowModal}) => {
         <option value='It is worth it on sale'>It's only worth it on sale</option>
         <option value='I would not reccomend it'>I would not reccomend it.</option>
         </select>
+        </div>
+        <div className='q-a-container'>
+        <label>What else can you tell us?</label>
+        <textarea
+        onChange={(e) =>setReview(e.target.value)}
+        value={review}
+        placeholder='Tell us your thoughts'
+        required
+        />
+        </div>
         <button className='modal-button' type='submit'>
         Submit Your Review
         </button>

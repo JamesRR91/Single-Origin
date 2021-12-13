@@ -21,9 +21,11 @@ const DeleteComment = ({ id, userid, recipeid, description, setShowModal }) => {
 }
 
 return (
-    <div className="modal-form">
-        <h3 className="modal-content">Are you sure?</h3>
+    <div className="review-detail-single">
+        <h3 className="modal-content-delete">Are you sure?</h3>
+        <div className='button-row-review'>
         <button className="modal-button" onClick={deleteCheckPoint}>Yes, Delete My Comment</button>
+        </div>
     </div>
 )
 };

@@ -28,7 +28,7 @@ const CreateComment = ({id, setShowModal}) => {
 
 
     return (
-        <section className="modal-container">
+        <section className="review-detail-single">
         <form onSubmit={handleSubmit} className="modal-form">
         <ul className='modal-errors-container'>
         {errors.map((error, idx) => (
@@ -36,7 +36,7 @@ const CreateComment = ({id, setShowModal}) => {
         ))}
       </ul>
         <label>Add A Comment</label>
-        <input type='textarea'
+        <textarea
         onChange={(e) =>setDescription(e.target.value)}
         value={description}
         placeholder="Please be kind"

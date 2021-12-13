@@ -33,8 +33,7 @@ const EditComment = ({ id, userid, recipeid, description, setShowModal }) => {
     <section className="modal-container">
       <form onSubmit={handleSubmit} className="modal-form">
         <label>Edit Your Comment</label>
-        <input
-          type="textarea"
+        <textarea
           onChange={(e) => setReview(e.target.value)}
           value={review}
           placeholder="Please be kind"
