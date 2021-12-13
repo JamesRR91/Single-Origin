@@ -36,7 +36,7 @@ const Review = ({id, setShowModal}) => {
         <div className='card-grid-single'>
         <div className='recipe-detail-single'>
         <h3 className='recipe-title-single'>{product}</h3>
-        <img src={imgurl} className='img'/>
+        <img src={imgurl} className='img-modal'/>
         <div className='card-body-single'>
         <ul className='recipe-detail-list-container'>
         <li className='recipe-detail-list'>Cost: ${price}</li>
@@ -47,12 +47,33 @@ const Review = ({id, setShowModal}) => {
         <CreateReviewModal id={id}/>
         </div>
         <div className='comment-container'>
-            {reviewArray.map(({id, userid, grinderid, review}) => (
+            {reviewArray.map(({id, userid, grinderid, usetime, usecase, sale, reccomendation, review}) => (
                 <div className='comment-container-single' key={id}>
-                <ul>
-                <li>{review}</li>
+                <ul className='list-container'>
+                <div className='q-a-container'>
+                <li className='review-list-single'>How long did you use it?</li>
+                <li className='review-list-single'>{usetime}</li>
+                </div>
+                <div className='q-a-container'>
+                <li className='review-list-single'>What did you use it for?</li>
+                <li className='review-list-single'>{usecase}</li>
+                </div>
+                <div className='q-a-container'>
+                <li className='review-list-single'>Where did you pick it up?</li>
+                <li className='review-list-single'>{sale}</li>
+                </div>
+                <div className='q-a-container'>
+                <li className='review-list-single'>What else do you want people to know?</li>
+                <li className='review-list-single'>{review}</li>
+                </div>
+                <div className='q-a-container'>
+                <li className='review-list-single'>Would you reccomend it?</li>
+                <li className='review-list-single'>{reccomendation}</li>
+                </div>
+                <div className='review-map-buttons'>
                 <li><EditReviewModal id={id} userid={userid} grinderid={grinderid}/></li>
                 <li><DeleteReviewModal id={id} userid={userid} grinderid={grinderid}/></li>
+                </div>
                 </ul>
                 </div>
             ))}

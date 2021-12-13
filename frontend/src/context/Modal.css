@@ -100,6 +100,7 @@
   .comment-container-single {
     box-sizing: border-box;
     border: solid black 2px;
+    text-align: center;
   }
 
   .recipe-title-single {
@@ -129,4 +130,34 @@
     align-items: center;
     height: 400px;
     width: 300px;
+  }
+
+  .list-container {
+    text-align: center;
+  }
+
+  .review-list-single {
+    text-align: center;
+    padding: 2px;
+    border-radius: 1px;
+  }
+
+  .review-map-buttons {
+    display: flex;
+    padding-top:10px;
+  }
+
+  .img-modal {
+    display: block;
+    align-items: center;
+    height: 300px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .q-a-container {
+    padding: 3px;
+    border-radius: 1px;
+    border-style: groove;
   }

@@ -18,6 +18,22 @@ module.exports = {
         type: Sequelize.INTEGER,
         references:{model:'Grinders'}
       },
+      usetime: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      usecase: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      sale: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      reccomendation: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       review: {
         allowNull:false,
         type: Sequelize.TEXT(1000)
