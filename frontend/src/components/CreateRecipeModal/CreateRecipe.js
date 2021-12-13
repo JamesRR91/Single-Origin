@@ -67,11 +67,13 @@ const CreateRecipe = ({setShowModal}) => {
             onChange={(e) =>setTitle(e.target.value)}
             value={title}
             placeholder='New Recipe'
+            required
             />
             <label>Brew Method</label>
             <select
             onChange={(e) =>setBrewType(e.target.value)}
             value={brewtype}
+            required
             >
             <option value=''>Please choose a method</option>
             <option value='Chemex'>Chemex</option>
@@ -84,6 +86,7 @@ const CreateRecipe = ({setShowModal}) => {
             <select
             onChange={(e) =>setRoastType(e.target.value)}
             value={roasttype}
+            required
             >
             <option value=''>Please choose a roast</option>
             <option value='Light Roast'>Light Roast</option>
@@ -95,6 +98,7 @@ const CreateRecipe = ({setShowModal}) => {
             <select
             onChange={(e) =>setGrindLevel(e.target.value)}
             value={grindlevel}
+            required
             >
             <option value=''>Please choose a grind setting</option>
             <option value='Very Coarse'>Very Coarse</option>
@@ -115,6 +119,7 @@ const CreateRecipe = ({setShowModal}) => {
             onChange={(e) =>setWaterDose(e.target.value)}
             value={waterdose}
             placeholder='Just eyeballin'
+            required
             />
             <label>Extraction Time</label>
             <input type="text"
@@ -127,6 +132,7 @@ const CreateRecipe = ({setShowModal}) => {
             onChange={(e) =>setDescription(e.target.value)}
             value={description}
             placeholder='Press Start, Pour'
+            required
             />
             <button className='modal-button' type='submit'>
           Add Recipe

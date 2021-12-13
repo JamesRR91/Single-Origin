@@ -41,6 +41,7 @@ const CreateReview = ({id, setShowModal}) => {
         <select
         onChange={(e) => setUseTime(e.target.value)}
         value={usetime}
+        required
         >
         <option value=''>Please select a time</option>
         <option value='Less than a month'>0-1 months</option>
@@ -55,6 +56,7 @@ const CreateReview = ({id, setShowModal}) => {
         <select
         onChange={(e) => setUseCase(e.target.value)}
         value={usecase}
+        required
         >
         <option value=''>Please select a usecase</option>
         <option value='drip coffee'>drip coffee</option>
@@ -69,6 +71,7 @@ const CreateReview = ({id, setShowModal}) => {
         <select
         onChange={(e) => setSale(e.target.value)}
         value={sale}
+        required
         >
         <option value=''>Please tell us how you found it</option>
         <option value='bought new, market price'>Bought new at full price</option>
@@ -82,6 +85,7 @@ const CreateReview = ({id, setShowModal}) => {
         <select
         onChange={(e) => setReccomendation(e.target.value)}
         value={reccomendation}
+        required
         >
         <option value=''>Is it worth it?</option>
         <option value='Good for the price'>Good for the price</option>

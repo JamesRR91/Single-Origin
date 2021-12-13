@@ -20,6 +20,7 @@ function LoginForm() {
 // }
 
   const handleSubmit = (e) => {
+    let err;
     e.preventDefault();
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password })).catch(
@@ -30,7 +31,7 @@ function LoginForm() {
     );
   };
   return (
-    <form onSubmit={handleSubmit} className='modal-form'>
+    <form onSubmit={handleSubmit} className='modal-container'>
       <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
