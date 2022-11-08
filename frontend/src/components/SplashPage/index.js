@@ -9,11 +9,11 @@ function SplashPage(){
             Welcome to Single Origin, a place for all home baristas.
             </h2>
             <div className='button-row'>
-            <Link to='/recipe'><button className="recipe-button">
+            <Link to='/recipe'><button className="test-new-button">
              Find New Recipes
              </button>
              </Link>
-             <Link to='/grinder'><button className="recipe-button">
+             <Link to='/grinder'><button className="test-new-button">
              Browse Through Grinder Reviews
              </button>
              </Link>

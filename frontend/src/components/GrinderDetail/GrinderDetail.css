@@ -2,12 +2,33 @@
 .card {
     display: flex;
     border-radius: 1rem;
-    width: 600px;
-    height: 450px;
+    /* width: 600px;
+    height: 450px; */
     box-shadow: 0 2px 20px;
     cursor: pointer;
     transition: transform 200ms ease-in;
     overflow:hidden;
+    background:url(#img-grinder);
+    
+    margin-top: .9rem;
+    font-size: .9rem;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    /* max-width: 600px; */
+    width: 100vw;
+    
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
+    /* display: grid; */
+    /* grid-template-rows: max-content 200px 1fr; */
+    /* align-content: flex-start; */
+    /* justify-content:center; */
+    /* align-items:flex-start; */
+    /* width: fit-content; */
+    /* height: fit-content; */
+    /* max-width: 500px; */
+    /* margin: auto; */
 
     }
 
@@ -27,6 +48,7 @@
     padding: 2%;
     flex-grow: 1;
     flex-basis: 16%;
+    background: url(#img-grinder);
 
 }
 
@@ -40,14 +62,16 @@
 .img-grinder {
     display: flex;
     justify-content: center;
-    width: 300px;
-    height: 450px;
+    width: 100%;
+    height: 32vw;
+    object-fit: cover;
 
 }
 
 .grinder-detail-list {
     text-align: center;
     font-weight: bold;
+    color: black;
 }
 
 .grinder-single-card-container {
@@ -76,3 +100,4 @@
 .button-row {
     text-align: center;
 }
+

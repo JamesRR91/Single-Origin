@@ -23,16 +23,21 @@
     flex: 0 1 24%;
     flex-direction: column;
     justify-content: center;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     align-items: center;
     margin: 1rem .25em;
-    background-color:white;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
-    border-radius: .25rem;
+    /* background-color:white; */
+    /* box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2); */
+    /* border-radius: .25rem; */
     max-width: 500px;
     align-items: center;
     transition: 0.3s;
     flex-wrap: wrap;
+    background: rgba(255,255,255,0.7);
+    box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+    backdrop-filter: blur(2.1px);
+    -webkit-backdrop-filter: blur(2.1px);
+    border-radius: 10px;
 }
 
 .recipe-title {
