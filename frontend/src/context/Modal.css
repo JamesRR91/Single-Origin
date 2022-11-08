@@ -47,13 +47,50 @@
   }
 
   .modal-button {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    z-index: 0;
+    background: #fff;
+    overflow: hidden;
+    border: 2px solid hsl(200, 50%, 50%);
+    color:hsl(200, 50%, 50%);
+}
+  .modal-button:hover {
+    color: #fff;
+  }
+  .modal-button:hover:after {
+    width: 100%;
+  }
+  .modal-button:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transition: all 0.3s ease;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: hsl(200, 50%, 50%);
+  }
+
+
+  /* .modal-button {
     background: hsl(200, 50%, 50%);
     color: white;
     border: none;
     padding: .5em .75em;
     border-radius: .25em;
     cursor: pointer;
-  }
+  } */
 
   .modal-button-review {
     background: hsl(200, 50%, 50%);
@@ -133,6 +170,7 @@
     align-items: center;
     margin:0 auto;
     text-align: left;
+    color: black;
   }
 
   .recipe-detail-list-container {
@@ -203,7 +241,11 @@
 
   .review-detail-single {
     max-height: 90%;
-    background: silver;
+    background: rgba(255,255,255,0.7);
+    box-shadow: 20px 20px 40px -6px rgba(0,0,0,0.2);
+    backdrop-filter: blur(2.1px);
+    -webkit-backdrop-filter: blur(2.1px);
+    border-radius: 10px;
   }
 
   .review-title {
@@ -233,3 +275,5 @@
     padding: 2px;
     padding-bottom: 2px;
   }
+
+  
